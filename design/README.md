@@ -4,6 +4,11 @@ This directory stores visual inspiration, UX patterns, and mockups for the rescu
 
 ## Directory Structure
 
+- [`inspiration/dopamine-color-block-guide.md`](./inspiration/dopamine-color-block-guide.md) — Joyful Color-Block (Dopamine UI) design guide inspired by your reference screenshots: color blocking, squircle geometry, and jet-black pill buttons.
+- [`inspiration/pop-art-style-guide.md`](./inspiration/pop-art-style-guide.md) — Pop Art UI style guide (archived exploration).
+- [`inspiration/playful-styling-directions.md`](./inspiration/playful-styling-directions.md) — 3 distinctive "non-generic" playful styling directions (Sticker Pop, Polaroid Scrapbook, Chunky Toybox) using the Nude/Lake/Salmon palette.
+- [`inspiration/coolors-palettes-review.md`](./inspiration/coolors-palettes-review.md) — 60-30-10 implementation review of the 5 Coolors candidate palettes.
+- [`inspiration/inspiration-guide.md`](./inspiration/inspiration-guide.md) — Visual inspiration guide: 3 card layout archetypes, app analogies (Hinge, Airbnb, Stories), typography pairings, and micro-interactions.
 - [`color-theory-and-palette.md`](./color-theory-and-palette.md) — Developer-friendly guide to HSL color theory, the 60-30-10 rule, semantic badge colors, and candidate palettes.
 - `inspiration/` — Screenshots, links, color palettes, typography, and notes from apps we like (e.g., Hinge, Bumble, Tinder, Petfinder, Good Pup).
 - `mockups/` — Wireframes, sketches, and UI mockups for key screens.
