@@ -1,21 +1,23 @@
 ---
 name: AdoptionMatch
-description: Dating-style discovery for adoptable rescue companions
+description: Dating-style discovery for adoptable rescue companions in an Electric Retro Pop aesthetic
 colors:
-  primary: "#93B1FF"
-  primary-dark: "#7089D6"
-  secondary: "#FFAA33"
-  secondary-dark: "#D98818"
-  surface-custard: "#FFF7E8"
-  neutral-bg: "#F4F6FB"
-  neutral-jet: "#141416"
+  primary: "#DF4E30"
+  primary-dark: "#C03A1F"
+  secondary: "#F8BC27"
+  secondary-dark: "#D69B10"
+  accent-cobalt: "#2752D6"
+  surface-custard: "#FFF8EB"
+  neutral-bg: "#DF4E30"
+  neutral-cocoa: "#1D130E"
   neutral-white: "#FFFFFF"
 typography:
   display:
     fontFamily: "var(--font-plus-jakarta), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
-    fontSize: "1.25rem"
+    fontSize: "1.5rem"
     fontWeight: 800
-    lineHeight: 1.2
+    lineHeight: 1.15
+    letterSpacing: "-0.03em"
   body:
     fontFamily: "var(--font-plus-jakarta), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
     fontSize: "0.875rem"
@@ -24,14 +26,14 @@ typography:
   label:
     fontFamily: "var(--font-plus-jakarta), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
     fontSize: "0.75rem"
-    fontWeight: 700
+    fontWeight: 800
     lineHeight: 1.2
     letterSpacing: "0.03em"
 rounded:
   sm: "8px"
   md: "12px"
   lg: "16px"
-  xl: "20px"
+  xl: "22px"
   2xl: "32px"
   full: "9999px"
 spacing:
@@ -43,106 +45,54 @@ spacing:
   2xl: "32px"
 components:
   button-primary:
-    backgroundColor: "{colors.neutral-jet}"
+    backgroundColor: "{colors.accent-cobalt}"
     textColor: "{colors.neutral-white}"
     rounded: "{rounded.full}"
     padding: "14px 22px"
   button-secondary:
-    backgroundColor: "{colors.neutral-white}"
-    textColor: "{colors.neutral-jet}"
+    backgroundColor: "{colors.surface-custard}"
+    textColor: "{colors.neutral-cocoa}"
     rounded: "{rounded.full}"
     padding: "14px 20px"
   card-hero:
-    backgroundColor: "{colors.neutral-white}"
-    rounded: "{rounded.2xl}"
-    padding: "14px"
-  prompt-container:
     backgroundColor: "{colors.surface-custard}"
-    textColor: "{colors.neutral-jet}"
-    rounded: "{rounded.xl}"
-    padding: "12px"
+    rounded: "{rounded.2xl}"
+    padding: "16px"
+  prompt-container:
+    backgroundColor: "{colors.neutral-white}"
 ---
 
-# Design System: AdoptionMatch
+# Design System: Electric Retro Pop
 
-## Overview
+## Visual Language
 
-**Creative North Star: "The Dopamine Dog Park"**
+The design system is grounded in **Electric Retro Pop**—a warm, high-dopamine visual world inspired by 70s poster warmth, vibrant risograph printing, and tactile bookshop craft. It replaces the sterile "shelter blue" and generic dating-app pastels with bold Tomato Coral fields (`#DF4E30`), warm Custard Paper surfaces (`#FFF8EB`), punchy Electric Cobalt CTAs (`#2752D6`), and Sun Yellow match badges (`#F8BC27`).
 
-AdoptionMatch replaces clinical, intimidating shelter directories with a bold, joyful, and highly tactile dating-app experience. Rooted in modern "Dopamine UI" aesthetics, the visual world uses confident surface color-blocking—Sky Periwinkle, Sunny Marigold, and Custard Cream—anchored by solid Jet-Black pill controls so the interface feels energetic and delightful without slipping into childishness.
+## Color System
 
-The design system prioritizes emotional connection and human warmth. Rather than treating rescue pets like cold inventory items, cards present authentic photos alongside conversational prompts and decoded lifestyle requirements. The layout explicitly rejects sterile "shelter blue", harsh danger-red error banners, and clinical classified-ad grids.
-
-**Key Characteristics:**
-- **Vibrant Surface Color-Blocking**: Containers and cards carry rich background hues rather than plain white boxes with tiny colored text.
-- **The Jet-Black Anchor**: High-energy pastels are grounded by deep Jet-Black pill buttons (`#141416`) for instant hierarchy and polish.
-- **Pillowy Squircle Geometry**: Generous corner radii (`rounded-[28px]`) create organic, touchable containers that invite interaction.
-- **Compassionate Non-Judgmental Signaling**: Warm amber/marigold tones replace alarming danger-reds for behavioral notes.
-
-## Colors
-
-The palette balances joyful pastel color blocks with deep, grounding ink tones to maintain WCAG AA contrast across every surface.
-
-### Primary
-- **Sky Periwinkle** (`#93B1FF` / dark: `#7089D6`): The hero card surface color. Inviting, friendly, and refreshing, it gives the central pet deck immediate visual presence.
-
-### Secondary
-- **Sunny Marigold** (`#FFAA33` / dark: `#D98818`): The celebration accent. Used for match percentage badges, star ratings, and subtle highlight borders.
-
-### Tertiary
-- **Custard Cream** (`#FFF7E8` / dark: `#F5E9CE`): The conversational prompt container surface. Warm and paper-like, it provides a cozy background for first-person bio text.
-
-### Neutral
-- **Jet Ink** (`#141416`): The primary text and CTA anchor color. Used on primary buttons (`Save & Match`) and headlines to guarantee high visual weight and legibility.
-- **Ice Canvas** (`#F4F6FB`): The global application background. A very soft, tinted off-white that keeps the eye focused on the colorful cards.
-- **Pure White** (`#FFFFFF`): Used for secondary action buttons, photo navigation chips, and inner container cards.
+### Tonal Ramp
+- **Tomato Coral Ground** (`#DF4E30`): The signature warm, optimistic canvas of the application.
+- **Custard Paper** (`#FFF8EB` / `#F5E8D0`): Warm, pillowy, tactile paper cards that hold photography and information.
+- **Electric Cobalt** (`#2752D6` / `#1A3DB5`): High-energy anchor buttons that drive decisive user action (*"Save & Match"*, *"Apply on Shelter Site ↗"*).
+- **Sun Yellow** (`#F8BC27` / `#D69B10`): Celebratory match percentage stamps, glowing badges, and brand emblems.
+- **Deep Dark Cocoa** (`#1D130E`): High-contrast ink for all text, headings, and outlines.
+- **Matcha Mint** (`#107E54` / `#D7F3E3`): Celebratory confirmations and applied application tags.
 
 ### Named Rules
-**The Black Anchor Rule.** High-energy pastels (Sky Periwinkle, Custard Cream, and Marigold) must always be grounded by solid Jet-Black (`#141416`) pill buttons. The black anchor prevents playful color-blocking from looking like a toy and gives the UI a sleek, intentional finish.
+**The Cobalt Anchor Rule.** Bright, optimistic coral and custard surfaces are anchored by solid Electric Cobalt (`#2752D6`) pill buttons for the primary positive actions.
 
-**The Compassion Over Alarm Rule.** Behavioral nuances and shelter requirements (e.g., "Needs to be only dog", "Needs fenced yard") must be styled in warm amber or soft marigold tones, never alarmist hospital red. We inform the adopter without stigmatizing the animal.
+**The Compassion Over Alarm Rule.** Behavioral considerations, specific quirks, and shelter warnings must always be rendered in warm honey/sun tones (`#F8BC27`/25) with soft cocoa text, never alarmist red badges.
+
+**The No Micro-Text Rule.** All labels, tags, and timestamps have a strict floor at `12px` (`text-xs`) with heavy weight (700/800) to ensure crystal clarity.
 
 ## Typography
 
-**Primary Font:** Plus Jakarta Sans (`var(--font-plus-jakarta)`, with `-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif` fallback)
+- **Display Face**: **Plus Jakarta Sans** (800 Weight) with tight letter-spacing (`-0.03em`), conveying energetic, friendly poster confidence.
+- **Body & Prompts**: **Plus Jakarta Sans** (600/700 Weight) for warm, highly readable foster bios and shelter translations.
 
-**Character:** Geometric, confident, and warm. Its rounded bowls and generous apertures echo the squircle curves (`rounded-[28px]`) of our cards and buttons without crossing into childishness.
+## Shapes & Radii
 
-### Hierarchy
-- **Display / Pet Name** (Extra Bold 800, `1.25rem` / `20px`, line-height `1.2`): Used for the pet's name and age at the top of the card with `text-balance`.
-- **Headline / Section Header** (Extra Bold 800, `1rem` / `16px`, line-height `1.3`): Used for dashboard panel titles ("Your Saved Pack", "Search Filters").
-- **Title / Prompt Question** (Extra Bold 800, `0.75rem` / `12px`, letter-spacing `0.05em`, uppercase): Used for prompt category headers ("THE WAY TO WIN ME OVER...").
-- **Body / Prompt Answer** (Bold 700, `0.75rem` / `12px` to `0.875rem` / `14px`, line-height `1.5`): Used for first-person bio answers with `text-pretty`.
-- **Label / Badges** (Bold 700 to Extra Bold 800, `0.75rem` / `12px`, line-height `1.2`): Used for decoded trait pills and distance tags. Minimum text size is anchored at `12px` (`text-xs`) to prevent sub-12px micro-text strain.
-
-### Named Rules
-**The Scannable Vitals Rule.** Core pet vitals (name, age, breed, distance) must be legible within 1.5 seconds. They must never be obscured by photo gradients or low-contrast text.
-
-**The No Micro-Text Rule.** Never use sub-12px text (`text-[10px]` or below). All badges, metadata labels, and timestamps have a hard floor at `12px` (`text-xs`) with deliberate weight (700/800) to ensure high readability across both mobile screens and desktop monitors.
-
-## Layout
-
-The application utilizes a responsive dual-flow spatial model:
-- **Desktop Dashboard (`lg: 1024px+`)**: Max width `1152px` (`max-w-6xl`) with a 12-column grid. The matching card deck occupies 5 columns on the left, while the persistent saved pack, search filter cards, and foster education callouts occupy 7 columns on the right.
-- **Mobile Feed (`< 1024px`)**: Max width `384px` (`max-w-sm`) centered column. Pure single-task focus: top header, centered card deck, and bottom sticky session tray.
-
-Spacing follows an 8pt rhythmic grid (`8px`, `12px`, `16px`, `24px`, `32px`).
-
-## Elevation & Depth
-
-Tactile and grounded. The system relies on **tonal surface layering** rather than heavy drop shadows to communicate hierarchy.
-
-### Shadow Vocabulary
-- **Card Rest** (`box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)` / `shadow-lg`): Applied to the hero periwinkle pet card to float it gently off the ice canvas.
-- **Pill Button Depth** (`box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1)` / `shadow-md`): Gives the Jet-Black anchor button physical thickness and tactile clickability.
-- **Subtle Surface** (`box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05)` / `shadow-xs`): Applied to badges and thumbnail cards inside dashboard panels.
-
-### Named Rules
-**The Tonal Surface Rule.** Depth is created first by contrasting rich color-blocked surfaces (Periwinkle card on Ice canvas; Custard box on Periwinkle card). Shadows exist only to lift interactive elements off the background, never to create borders.
-
-## Shapes
-
-- **Hero Squircle Geometry**: Cards and major dashboard panels use generous `28px` to `32px` corner radii (`rounded-[28px]` / `rounded-[32px]`).
+- **Hero Squircle Geometry**: Cards and major dashboard panels use generous `32px` corner radii (`rounded-[32px]`).
 - **Prompt Containers**: Secondary nested containers use `22px` corner radii (`rounded-[22px]`).
 - **Pill Controls**: All buttons, badges, status chips, and avatar trays use fully rounded pill geometry (`rounded-full`).
 
@@ -151,45 +101,20 @@ Tactile and grounded. The system relies on **tonal surface layering** rather tha
 ### Buttons
 - **Primary Anchor (`button-primary`)**:
   - **Shape:** Full pill (`rounded-full`, height ~46px).
-  - **Color:** Jet-Black (`#141416`), text Pure White (`#FFFFFF`).
-  - **States:** Hover shifts to `#000000`; active state depresses (`active:scale-95`).
+  - **Color:** Electric Cobalt (`#2752D6`), text Pure White (`#FFFFFF`).
+  - **States:** Hover shifts to `#1A3DB5`; active state depresses (`active:scale-95`).
 - **Secondary Pass (`button-secondary`)**:
   - **Shape:** Full pill (`rounded-full`).
-  - **Color:** Pure White (`#FFFFFF`), text Jet-Black (`#141416`), subtle slate border and shadow.
-- **Photo Navigation Arrows**:
+  - **Color:** Custard Paper (`#FFF8EB`), text Dark Cocoa (`#1D130E`), subtle border (`border-cocoa/20`).
+- **Photo Navigation Chevrons**:
   - **Shape:** Circular (`w-9 h-9 rounded-full`).
   - **Color:** Translucent black backdrop (`bg-black/45` with `backdrop-blur-md`), white chevron icon.
-
-### Chips & Badges
-- **Match Score Stamp**: Marigold background (`bg-marigold`), Jet-Black text, star icon, full pill shape.
-- **Decoded Trait Pills**:
-  - *Green Flags:* Light slate / mint surface (`bg-slate-100` or `bg-emerald-50`), Jet text.
-  - *Good to Know / Consideration:* Muted marigold wash (`bg-marigold/15`), subtle amber border.
 
 ### Cards / Containers
 - **PetCard (Hero)**:
   - **Corner Style:** `rounded-[32px]`.
-  - **Background:** Pure White (`#FFFFFF`) with subtle border (`border-slate-200/80`) and shadow (`shadow-xl shadow-indigo-950/5`).
-  - **Padding:** `14px` all around.
+  - **Background:** Custard Paper (`#FFF8EB`) with subtle outline (`border-cocoa/15`) and shadow (`shadow-2xl`).
+  - **Padding:** `16px` all around.
 - **PromptContainer (Nested)**:
   - **Corner Style:** `rounded-[22px]`.
-  - **Background:** Custard Cream (`#FFF7E8`).
-  - **Padding:** `16px`.
-
-### Signature Component: The Session Bubble Tray
-- A horizontal shelf displaying saved pet avatars. Circular `32px` photo bubbles with a white border ring overlap slightly (`-space-x-2`), growing in real-time as adopters swipe right.
-
-## Do's and Don'ts
-
-### Do:
-- **Do** anchor bright pastel surfaces with solid Jet-Black (`#141416`) pill buttons.
-- **Do** use `‹` and `›` tap arrows and keyboard arrow keys for photo navigation to avoid gesture conflicts with card swiping.
-- **Do** frame pet traits with conversational prompts ("The way to win me over...") rather than raw database labels.
-- **Do** reset the photo carousel to index `0` whenever a new pet card mounts.
-- **Do** present shelter caveats in warm amber tones rather than danger-red error badges.
-
-### Don't:
-- **Don't** use sterile "shelter blue" or clinical grey tables.
-- **Don't** use sharp 90-degree corners on cards or buttons; maintain the squircle language (`rounded-[20px]` to `rounded-[28px]`).
-- **Don't** trap users in a black-box algorithm; always keep active filter chips visible and editable.
-- **Don't** use negative rejection labels ("No", "Reject", "Dislike") on pass buttons; use compassionate framing ("Not My Fit").
+  - **Background:** Crisp White (`#FFFFFF`) with subtle cocoa border.

@@ -12,24 +12,46 @@ export default {
         sans: ["var(--font-plus-jakarta)", "-apple-system", "BlinkMacSystemFont", "sans-serif"],
       },
       colors: {
-        periwinkle: {
-          light: "#B8CBFF",
-          DEFAULT: "#93B1FF",
-          dark: "#7089D6",
-        },
-        marigold: {
-          light: "#FFC266",
-          DEFAULT: "#FFAA33",
-          dark: "#D98818",
+        // Electric Retro Pop Design Tokens
+        coral: {
+          light: "#EA684D",
+          DEFAULT: "#DF4E30",
+          dark: "#C03A1F",
         },
         custard: {
-          light: "#FFFDF5",
-          DEFAULT: "#FFF7E8",
-          dark: "#F5E9CE",
+          light: "#FFFDF9",
+          DEFAULT: "#FFF8EB",
+          dark: "#F5E8D0",
         },
+        cobalt: {
+          light: "#4A72F5",
+          DEFAULT: "#2752D6",
+          dark: "#1A3DB5",
+        },
+        sun: {
+          light: "#FFD154",
+          DEFAULT: "#F8BC27",
+          dark: "#D69B10",
+        },
+        cocoa: {
+          light: "#3A271E",
+          DEFAULT: "#1D130E",
+          muted: "#6B4D3D",
+        },
+        // Legacy token fallbacks for seamless component compatibility
         jet: {
-          DEFAULT: "#141416",
-          soft: "#232328",
+          DEFAULT: "#1D130E",
+          soft: "#2C1E17",
+        },
+        marigold: {
+          light: "#FFD154",
+          DEFAULT: "#F8BC27",
+          dark: "#D69B10",
+        },
+        periwinkle: {
+          light: "#4A72F5",
+          DEFAULT: "#2752D6",
+          dark: "#1A3DB5",
         },
       },
     },
