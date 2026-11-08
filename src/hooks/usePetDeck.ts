@@ -42,27 +42,6 @@ export function usePetDeck() {
     setCurrentIndex(0);
   }, []);
 
-  // Keyboard shortcuts for Desktop users: ArrowLeft (Pass) and ArrowRight (Match)
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      // Don't trigger shortcuts if user is typing in an input field
-      if (e.target instanceof HTMLInputElement || e.target instanceof HTMLTextAreaElement) {
-        return;
-      }
-
-      if (e.key === "ArrowLeft") {
-        e.preventDefault();
-        handlePass();
-      } else if (e.key === "ArrowRight") {
-        e.preventDefault();
-        handleSave();
-      }
-    };
-
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [handlePass, handleSave]);
-
   return {
     selectedSpecies,
     setSelectedSpecies: (species: Species | "all") => {

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { Pet } from "@/types/pet";
 import { ChevronLeft, ChevronRight, Heart, X, MapPin, Sparkles } from "lucide-react";
 
@@ -14,15 +14,37 @@ interface PetCardProps {
 export function PetCard({ pet, onPass, onSave, onViewProfile }: PetCardProps) {
   const [photoIndex, setPhotoIndex] = useState(0);
 
-  const nextPhoto = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    setPhotoIndex((prev) => (prev + 1) % pet.photos.length);
-  };
+  // Reset to first photo whenever a new pet card loads
+  useEffect(() => {
+    setPhotoIndex(0);
+  }, [pet.id]);
 
-  const prevPhoto = (e: React.MouseEvent) => {
-    e.stopPropagation();
+  const nextPhoto = useCallback(() => {
+    setPhotoIndex((prev) => (prev + 1) % pet.photos.length);
+  }, [pet.photos.length]);
+
+  const prevPhoto = useCallback(() => {
     setPhotoIndex((prev) => (prev - 1 + pet.photos.length) % pet.photos.length);
-  };
+  }, [pet.photos.length]);
+
+  // Arrow keys cycle through photos on desktop
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.target instanceof HTMLInputElement || e.target instanceof HTMLTextAreaElement) {
+        return;
+      }
+      if (e.key === "ArrowLeft") {
+        e.preventDefault();
+        prevPhoto();
+      } else if (e.key === "ArrowRight") {
+        e.preventDefault();
+        nextPhoto();
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [nextPhoto, prevPhoto]);
 
   return (
     <div className="w-full max-w-sm mx-auto flex flex-col gap-3 select-none">
