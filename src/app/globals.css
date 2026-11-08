@@ -14,39 +14,83 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-@keyframes dropEntrance {
+@keyframes physicalDrop {
   0% {
+    transform: translateY(-110vh) scale(0.7, 1.4);
     opacity: 0;
-    transform: translateY(-160px) scale(0.85);
+  }
+  15% {
+    opacity: 1;
+  }
+  55% {
+    transform: translateY(0) scale(1.22, 0.72);
+  }
+  75% {
+    transform: translateY(-28px) scale(0.92, 1.1);
+  }
+  90% {
+    transform: translateY(0) scale(1.04, 0.96);
   }
   100% {
-    opacity: 1;
-    transform: translateY(0) scale(1);
+    transform: translateY(0) scale(1, 1);
   }
 }
 
-@keyframes gentleFloat {
-  0%, 100% {
-    transform: translateY(0px);
+@keyframes popBloom {
+  0% {
+    transform: scale(0.75) rotate(-6deg);
+    opacity: 0.8;
+  }
+  45% {
+    transform: scale(1.2) rotate(3deg);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes starBurst {
+  0% {
+    transform: scale(0.4) rotate(0deg);
+    opacity: 0;
   }
   50% {
-    transform: translateY(-4px);
-  }
-}
-
-@keyframes sparkPop {
-  0% {
-    transform: scale(0.92);
-    opacity: 0;
-  }
-  100% {
-    transform: scale(1);
+    transform: scale(1.4) rotate(25deg);
     opacity: 1;
   }
+  100% {
+    transform: scale(2) rotate(45deg);
+    opacity: 0;
+  }
 }
 
-.animate-drop-bounce {
-  animation: dropEntrance 0.65s cubic-bezier(0.16, 1, 0.3, 1) both;
+@keyframes revealUp {
+  0% {
+    opacity: 0;
+    transform: translateY(32px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-physical-drop {
+  animation: physicalDrop 0.65s cubic-bezier(0.25, 1, 0.5, 1) both;
+}
+
+.animate-pop-bloom {
+  animation: popBloom 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animate-star-burst {
+  animation: starBurst 0.5s ease-out forwards;
+}
+
+.animate-reveal-up {
+  animation: revealUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 .animate-float-idle {
