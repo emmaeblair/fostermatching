@@ -15,7 +15,9 @@ import {
   Home, 
   Users, 
   Info,
-  Check
+  Check,
+  ChevronLeft,
+  ChevronRight
 } from "lucide-react";
 
 interface PetProfileModalProps {
@@ -38,16 +40,33 @@ export function PetProfileModal({
   const [selectedPhotoIndex, setSelectedPhotoIndex] = useState(0);
   const [copiedShare, setCopiedShare] = useState(false);
 
-  // Close on Escape key press
+  const nextPhoto = useCallback(() => {
+    setSelectedPhotoIndex((prev) => (prev + 1) % pet.photos.length);
+  }, [pet.photos.length]);
+
+  const prevPhoto = useCallback(() => {
+    setSelectedPhotoIndex((prev) => (prev - 1 + pet.photos.length) % pet.photos.length);
+  }, [pet.photos.length]);
+
+  // Keyboard navigation: Escape closes modal, Left/Right arrows cycle photos
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.target instanceof HTMLInputElement || e.target instanceof HTMLTextAreaElement) {
+        return;
+      }
       if (e.key === "Escape") {
         onClose();
+      } else if (e.key === "ArrowLeft") {
+        e.preventDefault();
+        prevPhoto();
+      } else if (e.key === "ArrowRight") {
+        e.preventDefault();
+        nextPhoto();
       }
     };
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [onClose]);
+  }, [nextPhoto, prevPhoto, onClose]);
 
   // Lock body scroll while modal is open
   useEffect(() => {
@@ -138,9 +157,37 @@ export function PetProfileModal({
               )}
 
               {/* Bottom Photo Count */}
-              <div className="absolute bottom-3 right-3 bg-jet/70 text-white font-bold text-xs px-3 py-1 rounded-full backdrop-blur-sm">
+              <div className="absolute bottom-3 right-3 bg-jet/70 text-white font-bold text-xs px-3 py-1 rounded-full backdrop-blur-sm z-10">
                 Photo {selectedPhotoIndex + 1} of {pet.photos.length}
               </div>
+
+              {/* Tap Arrows to cycle photos directly */}
+              {pet.photos.length > 1 && (
+                <>
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      prevPhoto();
+                    }}
+                    className="absolute left-2.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/40 hover:bg-black/70 text-white flex items-center justify-center backdrop-blur-sm transition-all z-10"
+                    aria-label="Previous photo"
+                  >
+                    <ChevronLeft className="w-5 h-5" />
+                  </button>
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      nextPhoto();
+                    }}
+                    className="absolute right-2.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/40 hover:bg-black/70 text-white flex items-center justify-center backdrop-blur-sm transition-all z-10"
+                    aria-label="Next photo"
+                  >
+                    <ChevronRight className="w-5 h-5" />
+                  </button>
+                </>
+              )}
             </div>
 
             {/* Thumbnail Row */}
