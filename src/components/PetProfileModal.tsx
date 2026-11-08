@@ -239,6 +239,11 @@ export function PetProfileModal({
                 href={pet.shelter.applicationUrl}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => {
+                  if (!isApplied) {
+                    onToggleApplied();
+                  }
+                }}
                 className="flex-1 py-3 px-5 rounded-full bg-jet text-white font-extrabold text-xs sm:text-sm flex items-center justify-center gap-2 hover:bg-black transition-all shadow-md active:scale-95"
               >
                 <span>Apply on Shelter Site</span>

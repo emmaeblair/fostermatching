@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { useState, useCallback, useRef } from "react";
 import { MOCK_PETS } from "@/data/mock-pets";
 import { Pet, Species } from "@/types/pet";
 
@@ -22,6 +22,9 @@ export function usePetDeck() {
   const [appliedPetIds, setAppliedPetIds] = useState<string[]>([]);
   const [inspectingPet, setInspectingPet] = useState<Pet | null>(null);
   const [toastMessage, setToastMessage] = useState<string | null>(null);
+
+  // Ref to track whether the active deck pet was acted upon (applied or saved) in the modal
+  const activePetActedOnInModalRef = useRef(false);
 
   // Filter available pets based on selected species & lifestyle toggles
   const filteredPets = MOCK_PETS.filter((pet) => {
@@ -70,30 +73,49 @@ export function usePetDeck() {
         return prev.filter((p) => p.id !== pet.id);
       } else {
         showToast(`Saved ${pet.name} to your pack! 🐾`);
+        if (activePet && pet.id === activePet.id) {
+          activePetActedOnInModalRef.current = true;
+        }
         return [...prev, pet];
       }
     });
-  }, [showToast]);
+  }, [activePet, showToast]);
 
   const isSaved = useCallback((petId: string) => {
     return savedPets.some((p) => p.id === petId);
   }, [savedPets]);
 
   const toggleApplied = useCallback((petId: string) => {
+    const targetPet = MOCK_PETS.find((p) => p.id === petId);
+    const petName = targetPet ? targetPet.name : "this pet";
+
     setAppliedPetIds((prev) => {
       const isAlreadyApplied = prev.includes(petId);
-      const targetPet = MOCK_PETS.find((p) => p.id === petId);
-      const petName = targetPet ? targetPet.name : "this pet";
-
       if (isAlreadyApplied) {
         showToast(`Unmarked application for ${petName}`);
         return prev.filter((id) => id !== petId);
       } else {
-        showToast(`Marked as applied for ${petName}! Best of luck! 💌`);
+        showToast(`Marked as applied for ${petName}! Saved to pack! 💌`);
+        
+        // Auto-save to pack if not already saved
+        if (targetPet) {
+          setSavedPets((savedPrev) => {
+            if (!savedPrev.some((p) => p.id === petId)) {
+              return [...savedPrev, targetPet];
+            }
+            return savedPrev;
+          });
+        }
+
+        // If this is the active pet in the deck, flag it so closing the modal advances the deck
+        if (activePet && petId === activePet.id) {
+          activePetActedOnInModalRef.current = true;
+        }
+
         return [...prev, petId];
       }
     });
-  }, [showToast]);
+  }, [activePet, showToast]);
 
   const isApplied = useCallback((petId: string) => {
     return appliedPetIds.includes(petId);
@@ -118,12 +140,23 @@ export function usePetDeck() {
   }, []);
 
   const openProfile = useCallback((pet: Pet) => {
+    activePetActedOnInModalRef.current = false;
     setInspectingPet(pet);
   }, []);
 
   const closeProfile = useCallback(() => {
+    // If the pet viewed was the active deck pet, and was marked applied or saved in the modal,
+    // advance the deck to the next companion so the user isn't stuck on that card
+    if (inspectingPet && activePet && inspectingPet.id === activePet.id) {
+      const isPetApplied = appliedPetIds.includes(activePet.id);
+      const isPetSaved = savedPets.some((p) => p.id === activePet.id);
+      if (activePetActedOnInModalRef.current || isPetApplied || isPetSaved) {
+        setCurrentIndex((prev) => prev + 1);
+      }
+    }
+    activePetActedOnInModalRef.current = false;
     setInspectingPet(null);
-  }, []);
+  }, [inspectingPet, activePet, appliedPetIds, savedPets]);
 
   const handleRestart = useCallback(() => {
     setCurrentIndex(0);
