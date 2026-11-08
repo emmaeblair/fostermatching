@@ -14,25 +14,44 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-@keyframes physicalDrop {
+@keyframes physicalDropToSpot {
   0% {
-    transform: translateY(-110vh) scale(0.7, 1.4);
+    transform: translateY(-110vh) scale(0.7, 1.35) rotate(-12deg);
     opacity: 0;
   }
   15% {
     opacity: 1;
   }
-  55% {
-    transform: translateY(0) scale(1.22, 0.72);
+  /* 1. Hit the bottom ground below the row slot */
+  50% {
+    transform: translateY(68px) scale(1.38, 0.62) rotate(4deg);
   }
-  75% {
-    transform: translateY(-28px) scale(0.92, 1.1);
+  /* 2. Bounce UP high from the bottom impact */
+  72% {
+    transform: translateY(-38px) scale(0.88, 1.16) rotate(-3deg);
   }
-  90% {
-    transform: translateY(0) scale(1.04, 0.96);
+  /* 3. Soft arc downward toward row spot */
+  88% {
+    transform: translateY(6px) scale(1.06, 0.95) rotate(1deg);
+  }
+  /* 4. Settle cleanly into the spot on the row */
+  100% {
+    transform: translateY(0) scale(1, 1) rotate(0deg);
+  }
+}
+
+@keyframes floorImpact {
+  0% {
+    transform: scale(0.6);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.8;
   }
   100% {
-    transform: translateY(0) scale(1, 1);
+    transform: scale(1.5);
+    opacity: 0;
   }
 }
 
@@ -78,11 +97,15 @@ body {
 }
 
 .animate-physical-drop {
-  animation: physicalDrop 0.65s cubic-bezier(0.25, 1, 0.5, 1) both;
+  animation: physicalDropToSpot 1.15s cubic-bezier(0.25, 1, 0.5, 1) both;
+}
+
+.animate-floor-impact {
+  animation: floorImpact 0.6s ease-out forwards;
 }
 
 .animate-pop-bloom {
-  animation: popBloom 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: popBloom 0.45s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 .animate-star-burst {

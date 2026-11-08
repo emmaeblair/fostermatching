@@ -86,10 +86,10 @@ export function DailyPetDrop({
     setPetPhases(initialPhases);
 
     surprisePets.forEach((pet, index) => {
-      // Staggered drop start (each pet begins falling off screen)
-      const dropDelay = 120 + index * 180;
-      // Pop open into full profile shortly after landing
-      const popDelay = dropDelay + 340;
+      // Slower, graceful staggered cadence so the user can enjoy each pet's drop and bounce
+      const dropDelay = 220 + index * 460;
+      // The pet drops from offscreen, hits the bottom ground, bounces up into spot, then pops open!
+      const popDelay = dropDelay + 1180;
 
       const dropTimer = setTimeout(() => {
         setPetPhases((prev) => ({ ...prev, [pet.id]: "falling" }));
@@ -102,8 +102,8 @@ export function DailyPetDrop({
       timersRef.current.push(dropTimer, popTimer);
     });
 
-    // When the last pet pops, reveal the rest of the screen
-    const totalDuration = 120 + (surprisePets.length - 1) * 180 + 340 + 250;
+    // When the last pet finishes bouncing and pops, reveal the rest of the screen
+    const totalDuration = 220 + (surprisePets.length - 1) * 460 + 1180 + 380;
     const finalTimer = setTimeout(() => {
       setShowRestOfScreen(true);
     }, totalDuration);
@@ -285,12 +285,12 @@ export function DailyPetDrop({
             Incoming Drop Zone ({surprisePets.length} top matches):
           </span>
           <span className="text-xs font-bold text-candy">
-            {showRestOfScreen ? "Click or use ← → arrow keys" : "Bouncing into spot..."}
+            {showRestOfScreen ? "Click or use ← → arrow keys" : "Dropping in, hitting bottom & bouncing into spot..."}
           </span>
         </div>
 
-        {/* Dropping Pets Grid / Shelf */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3.5 pt-2 relative min-h-[220px]">
+        {/* Dropping Pets Grid / Shelf with plenty of vertical overshoot clearance */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3.5 pt-2 pb-10 relative min-h-[260px]">
           {surprisePets.map((pet, idx) => {
             const phase = petPhases[pet.id] || "waiting";
             const isSelected = idx === selectedIndex && showRestOfScreen;
@@ -301,32 +301,38 @@ export function DailyPetDrop({
             return (
               <div 
                 key={`${pet.id}-${dropCycle}`} 
-                className="relative flex flex-col items-center justify-end min-h-[200px]"
+                className="relative flex flex-col items-center justify-end min-h-[220px]"
               >
                 
-                {/* Landing Target Pad on the floor */}
-                <div className="absolute bottom-0 w-full h-44 rounded-[26px] border-2 border-dashed border-candy/30 bg-white/30 -z-10 flex items-center justify-center">
+                {/* Landing Target Pad on the row slot */}
+                <div className="absolute bottom-2 w-full h-44 rounded-[26px] border-2 border-dashed border-candy/30 bg-white/30 -z-10 flex flex-col items-center justify-center gap-1.5">
                   {phase === "waiting" && (
-                    <span className="text-xs font-extrabold text-cocoa/30 animate-pulse">
-                      Dropping #{idx + 1}...
-                    </span>
+                    <>
+                      <span className="text-xl opacity-35">{isDog ? "🐶" : "🐱"}</span>
+                      <span className="text-xs font-extrabold text-cocoa/40 animate-pulse">
+                        Target #{idx + 1}
+                      </span>
+                    </>
                   )}
                 </div>
 
-                {/* PHASE 1 & 2: Falling & Bouncing Dog/Cat Object (Before Pop) */}
+                {/* Ground Impact Base Line under each column */}
+                <div className="absolute -bottom-6 w-20 h-2 rounded-full bg-cocoa/15 blur-[0.5px] -z-10 pointer-events-none" />
+
+                {/* PHASE 1 & 2: Falling, hitting bottom floor & bouncing UP to spot (Before Pop) */}
                 {phase === "falling" && (
-                  <div className="animate-physical-drop w-full flex flex-col items-center select-none py-2">
+                  <div className="animate-physical-drop w-full flex flex-col items-center select-none py-2 z-20">
                     {/* Dog Object: Mango Gold bouncing capsule with floppy puppy ears */}
                     {isDog ? (
                       <div className="relative flex flex-col items-center">
                         {/* Floppy Dog Ears */}
-                        <div className="absolute -top-3 -left-2 w-4 h-8 bg-amber-800 rounded-full rotate-[-28deg] shadow-md border border-white/60" />
-                        <div className="absolute -top-3 -right-2 w-4 h-8 bg-amber-800 rounded-full rotate-[28deg] shadow-md border border-white/60" />
+                        <div className="absolute -top-3.5 -left-2.5 w-5 h-9 bg-amber-800 rounded-full rotate-[-28deg] shadow-md border-2 border-white" />
+                        <div className="absolute -top-3.5 -right-2.5 w-5 h-9 bg-amber-800 rounded-full rotate-[28deg] shadow-md border-2 border-white" />
 
                         {/* Dog Capsule Body */}
-                        <div className="w-22 h-22 rounded-full bg-gradient-to-b from-amber-400 to-mango border-4 border-white shadow-2xl flex flex-col items-center justify-center text-center p-1">
-                          <span className="text-2xl drop-shadow">🐶</span>
-                          <span className="text-xs font-extrabold text-white bg-amber-800/80 px-2 py-0.5 rounded-full mt-0.5">
+                        <div className="w-24 h-24 rounded-full bg-gradient-to-b from-amber-300 via-mango to-amber-600 border-4 border-white shadow-2xl flex flex-col items-center justify-center text-center p-1.5">
+                          <span className="text-3xl drop-shadow">🐶</span>
+                          <span className="text-xs font-extrabold text-white bg-amber-900/90 px-2.5 py-0.5 rounded-full mt-0.5 shadow-xs">
                             Top Dog
                           </span>
                         </div>
@@ -335,20 +341,20 @@ export function DailyPetDrop({
                       /* Cat Object: Bubblegum Candy Pink bouncing capsule with pointy kitty ears */
                       <div className="relative flex flex-col items-center">
                         {/* Pointy Kitty Ears */}
-                        <div className="absolute -top-3 left-1 w-5 h-5 bg-pink-700 rotate-45 rounded-sm shadow-md border border-white/60" />
-                        <div className="absolute -top-3 right-1 w-5 h-5 bg-pink-700 rotate-45 rounded-sm shadow-md border border-white/60" />
+                        <div className="absolute -top-3 left-0.5 w-5 h-6 bg-pink-700 rotate-45 rounded-sm shadow-md border-2 border-white" />
+                        <div className="absolute -top-3 right-0.5 w-5 h-6 bg-pink-700 rotate-45 rounded-sm shadow-md border-2 border-white" />
 
                         {/* Cat Capsule Body */}
-                        <div className="w-22 h-22 rounded-full bg-gradient-to-b from-candy-light to-candy border-4 border-white shadow-2xl flex flex-col items-center justify-center text-center p-1">
-                          <span className="text-2xl drop-shadow">🐱</span>
-                          <span className="text-xs font-extrabold text-white bg-pink-900/80 px-2 py-0.5 rounded-full mt-0.5">
+                        <div className="w-24 h-24 rounded-full bg-gradient-to-b from-pink-300 via-candy to-pink-600 border-4 border-white shadow-2xl flex flex-col items-center justify-center text-center p-1.5">
+                          <span className="text-3xl drop-shadow">🐱</span>
+                          <span className="text-xs font-extrabold text-white bg-pink-950/90 px-2.5 py-0.5 rounded-full mt-0.5 shadow-xs">
                             Top Cat
                           </span>
                         </div>
                       </div>
                     )}
-                    <span className="text-xs font-extrabold text-cocoa mt-2">
-                      Incoming {pet.name}...
+                    <span className="text-xs font-extrabold text-cocoa mt-2.5 bg-white/80 px-2.5 py-0.5 rounded-full shadow-xs border border-cocoa/10">
+                      Bouncing {pet.name}...
                     </span>
                   </div>
                 )}
