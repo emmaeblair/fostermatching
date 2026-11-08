@@ -12,51 +12,61 @@ export default {
         sans: ["var(--font-plus-jakarta)", "-apple-system", "BlinkMacSystemFont", "sans-serif"],
       },
       colors: {
-        // Sunbaked Terracotta & Retro Pop Design Tokens
-        terracotta: {
-          light: "#F2B2A2",
-          DEFAULT: "#EA9B85",
-          dark: "#D6816A",
+        // Candy Sunset Palette (From User Reference)
+        biscuit: {
+          light: "#FDF4E5",
+          DEFAULT: "#F7E7CD",
+          dark: "#EAD4B3",
         },
-        coral: {
-          light: "#EA684D",
-          DEFAULT: "#DF4E30",
-          dark: "#C03A1F",
+        sunset: {
+          light: "#FF732B",
+          DEFAULT: "#FF5701",
+          dark: "#D94500",
         },
-        custard: {
-          light: "#FFFDF9",
-          DEFAULT: "#FFF8EB",
-          dark: "#F5E8D0",
+        candy: {
+          light: "#FF94CB",
+          DEFAULT: "#FE76BA",
+          dark: "#E659A2",
         },
-        cobalt: {
-          light: "#4A72F5",
-          DEFAULT: "#2752D6",
-          dark: "#1A3DB5",
+        mango: {
+          light: "#FFB054",
+          DEFAULT: "#FA9630",
+          dark: "#D67817",
         },
-        sun: {
-          light: "#FFD154",
-          DEFAULT: "#F8BC27",
-          dark: "#D69B10",
+        lilac: {
+          light: "#FCE2F3",
+          DEFAULT: "#F7B0E1",
+          dark: "#DE90C6",
         },
         cocoa: {
-          light: "#3A271E",
-          DEFAULT: "#1D130E",
-          muted: "#6B4D3D",
+          light: "#422517",
+          DEFAULT: "#241107",
+          muted: "#78442A",
         },
-        // Legacy token fallbacks
+        // Legacy alias mappings for seamless fallback
+        terracotta: {
+          DEFAULT: "#F7E7CD",
+        },
+        coral: {
+          DEFAULT: "#FF5701",
+        },
+        custard: {
+          DEFAULT: "#FFFFFF",
+        },
+        cobalt: {
+          DEFAULT: "#FE76BA",
+        },
+        sun: {
+          DEFAULT: "#FA9630",
+        },
         jet: {
-          DEFAULT: "#1D130E",
-          soft: "#2C1E17",
+          DEFAULT: "#241107",
         },
         marigold: {
-          light: "#FFD154",
-          DEFAULT: "#F8BC27",
-          dark: "#D69B10",
+          DEFAULT: "#FA9630",
         },
         periwinkle: {
-          light: "#4A72F5",
-          DEFAULT: "#2752D6",
-          dark: "#1A3DB5",
+          DEFAULT: "#FF5701",
         },
       },
     },

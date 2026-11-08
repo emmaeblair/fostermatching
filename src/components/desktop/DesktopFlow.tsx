@@ -88,11 +88,11 @@ export function DesktopFlow({
     lifestyleFilters.dogFriendlyOnly;
 
   return (
-    <div className="min-h-screen bg-terracotta px-8 py-7 flex flex-col justify-between max-w-6xl mx-auto selection:bg-sun selection:text-cocoa">
+    <div className="min-h-screen bg-biscuit px-8 py-7 flex flex-col justify-between max-w-6xl mx-auto selection:bg-candy selection:text-white">
       {/* Top Desktop Navigation */}
       <header className="flex items-center justify-between pb-5 border-b border-cocoa/15">
         <div className="flex items-center gap-3">
-          <div className="w-11 h-11 rounded-2xl bg-sun text-cocoa flex items-center justify-center text-xl shadow-md border border-white/40">
+          <div className="w-11 h-11 rounded-2xl bg-sunset text-white flex items-center justify-center text-xl shadow-md border border-white/40">
             🐾
           </div>
           <div>
@@ -100,8 +100,8 @@ export function DesktopFlow({
               <h1 className="font-extrabold text-2xl tracking-tight text-cocoa">
                 AdoptionMatch
               </h1>
-              <span className="text-xs font-extrabold px-2.5 py-0.5 rounded-full bg-sun text-cocoa shadow-xs border border-cocoa/10">
-                Sunbaked Terracotta
+              <span className="text-xs font-extrabold px-2.5 py-0.5 rounded-full bg-candy text-white shadow-xs">
+                Candy Sunset
               </span>
             </div>
             <p className="text-xs font-bold text-cocoa/80">
@@ -111,13 +111,13 @@ export function DesktopFlow({
         </div>
 
         {/* Center: Species Selector Tabs */}
-        <div className="flex items-center gap-1.5 bg-custard p-1.5 rounded-full shadow-md border border-cocoa/15">
+        <div className="flex items-center gap-1.5 bg-white/90 p-1.5 rounded-full shadow-md border border-cocoa/15">
           <button
             onClick={() => onSelectSpecies("all")}
             className={`px-4 py-1.5 rounded-full text-xs font-extrabold transition-all ${
               selectedSpecies === "all"
-                ? "bg-cobalt text-white shadow-sm"
-                : "text-cocoa hover:text-cobalt"
+                ? "bg-sunset text-white shadow-sm"
+                : "text-cocoa hover:text-sunset"
             }`}
           >
             All Pets
@@ -126,8 +126,8 @@ export function DesktopFlow({
             onClick={() => onSelectSpecies("dog")}
             className={`px-4 py-1.5 rounded-full text-xs font-extrabold transition-all ${
               selectedSpecies === "dog"
-                ? "bg-cobalt text-white shadow-sm"
-                : "text-cocoa hover:text-cobalt"
+                ? "bg-sunset text-white shadow-sm"
+                : "text-cocoa hover:text-sunset"
             }`}
           >
             🐶 Dogs
@@ -136,8 +136,8 @@ export function DesktopFlow({
             onClick={() => onSelectSpecies("cat")}
             className={`px-4 py-1.5 rounded-full text-xs font-extrabold transition-all ${
               selectedSpecies === "cat"
-                ? "bg-cobalt text-white shadow-sm"
-                : "text-cocoa hover:text-cobalt"
+                ? "bg-sunset text-white shadow-sm"
+                : "text-cocoa hover:text-sunset"
             }`}
           >
             🐱 Cats
@@ -145,8 +145,8 @@ export function DesktopFlow({
         </div>
 
         {/* Right Location Badge */}
-        <div className="flex items-center gap-2 text-xs font-extrabold px-4 py-1.5 rounded-full bg-custard text-cocoa shadow-md border border-cocoa/15">
-          <MapPin className="w-4 h-4 text-cobalt" />
+        <div className="flex items-center gap-2 text-xs font-extrabold px-4 py-1.5 rounded-full bg-white/90 text-cocoa shadow-md border border-cocoa/15">
+          <MapPin className="w-4 h-4 text-sunset" />
           <span>Seattle, WA • 25 mi</span>
         </div>
       </header>
@@ -154,8 +154,8 @@ export function DesktopFlow({
       {/* Floating Toast */}
       <div className="h-7 flex items-center justify-center my-1">
         {toastMessage && (
-          <div className="text-xs font-extrabold px-4 py-1.5 rounded-full bg-custard text-cocoa shadow-lg animate-fade-in flex items-center gap-2 border border-cocoa/20">
-            <Sparkles className="w-3.5 h-3.5 text-sun fill-sun" />
+          <div className="text-xs font-extrabold px-4 py-1.5 rounded-full bg-white text-cocoa shadow-lg animate-fade-in flex items-center gap-2 border border-cocoa/20">
+            <Sparkles className="w-3.5 h-3.5 text-candy fill-candy" />
             <span>{toastMessage}</span>
           </div>
         )}
@@ -180,13 +180,13 @@ export function DesktopFlow({
               <div className="flex items-center gap-2 text-xs font-bold text-cocoa/85 mt-0.5">
                 <Keyboard className="w-3.5 h-3.5 text-cocoa" />
                 <span className="flex items-center gap-1">
-                  Use <kbd className="px-1.5 py-0.5 rounded bg-custard text-cocoa font-mono shadow-xs border border-cocoa/20">←</kbd> <kbd className="px-1.5 py-0.5 rounded bg-custard text-cocoa font-mono shadow-xs border border-cocoa/20">→</kbd> for photos • click card for full profile
+                  Use <kbd className="px-1.5 py-0.5 rounded bg-white text-cocoa font-mono shadow-xs border border-cocoa/20">←</kbd> <kbd className="px-1.5 py-0.5 rounded bg-white text-cocoa font-mono shadow-xs border border-cocoa/20">→</kbd> for photos • click card for full profile
                 </span>
               </div>
             </div>
           ) : (
-            <div className="w-full bg-custard rounded-[32px] p-8 text-center shadow-2xl border border-cocoa/20 space-y-4 my-auto text-cocoa">
-              <div className="w-16 h-16 rounded-full bg-sun text-cocoa mx-auto flex items-center justify-center text-3xl shadow-sm">
+            <div className="w-full bg-white rounded-[32px] p-8 text-center shadow-xl border border-cocoa/15 space-y-4 my-auto text-cocoa">
+              <div className="w-16 h-16 rounded-full bg-mango text-white mx-auto flex items-center justify-center text-3xl shadow-sm">
                 🎉
               </div>
               <div className="space-y-1.5">
@@ -199,16 +199,16 @@ export function DesktopFlow({
                 <button
                   type="button"
                   onClick={onRestart}
-                  className="py-3 px-5 rounded-full bg-cobalt text-white text-xs font-extrabold shadow-md flex items-center justify-center gap-2 hover:bg-cobalt-dark transition-all"
+                  className="py-3 px-5 rounded-full bg-candy text-white text-xs font-extrabold shadow-md flex items-center justify-center gap-2 hover:bg-candy-dark transition-all"
                 >
-                  <RotateCcw className="w-4 h-4 text-sun" />
+                  <RotateCcw className="w-4 h-4 text-white" />
                   <span>Review Deck Again</span>
                 </button>
                 {hasActiveFilters && (
                   <button
                     type="button"
                     onClick={onResetFilters}
-                    className="py-3 px-4 rounded-full bg-white hover:bg-slate-100 text-cocoa text-xs font-extrabold transition-all border border-cocoa/20"
+                    className="py-3 px-4 rounded-full bg-biscuit/50 hover:bg-biscuit text-cocoa text-xs font-extrabold transition-all border border-cocoa/20"
                   >
                     Reset Filters
                   </button>
@@ -222,7 +222,7 @@ export function DesktopFlow({
         <div className="col-span-7 space-y-5">
           
           {/* Panel 1: Interactive Lifestyle Filter Chips */}
-          <div className="bg-custard rounded-[28px] p-5 shadow-2xl border border-cocoa/15 text-cocoa space-y-3">
+          <div className="bg-white/90 rounded-[28px] p-5 shadow-xl border border-cocoa/15 text-cocoa space-y-3">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
                 <Filter className="w-4 h-4 text-cocoa" />
@@ -234,7 +234,7 @@ export function DesktopFlow({
                 <button
                   type="button"
                   onClick={onResetFilters}
-                  className="text-xs font-extrabold text-cobalt hover:underline"
+                  className="text-xs font-extrabold text-sunset hover:underline"
                 >
                   Reset All
                 </button>
@@ -247,8 +247,8 @@ export function DesktopFlow({
                 onClick={() => onToggleLifestyleFilter("apartmentOnly")}
                 className={`px-3.5 py-1.5 rounded-full text-xs font-extrabold transition-all flex items-center gap-1.5 border ${
                   lifestyleFilters.apartmentOnly
-                    ? "bg-cobalt text-white border-cobalt shadow-sm"
-                    : "bg-white text-cocoa border-cocoa/15 hover:bg-slate-50"
+                    ? "bg-sunset text-white border-sunset shadow-sm"
+                    : "bg-biscuit/45 text-cocoa border-cocoa/15 hover:bg-biscuit"
                 }`}
               >
                 <span>🏢 Apartment Friendly</span>
@@ -259,8 +259,8 @@ export function DesktopFlow({
                 onClick={() => onToggleLifestyleFilter("catFriendlyOnly")}
                 className={`px-3.5 py-1.5 rounded-full text-xs font-extrabold transition-all flex items-center gap-1.5 border ${
                   lifestyleFilters.catFriendlyOnly
-                    ? "bg-cobalt text-white border-cobalt shadow-sm"
-                    : "bg-white text-cocoa border-cocoa/15 hover:bg-slate-50"
+                    ? "bg-sunset text-white border-sunset shadow-sm"
+                    : "bg-biscuit/45 text-cocoa border-cocoa/15 hover:bg-biscuit"
                 }`}
               >
                 <span>🐱 Safe with Cats</span>
@@ -271,8 +271,8 @@ export function DesktopFlow({
                 onClick={() => onToggleLifestyleFilter("dogFriendlyOnly")}
                 className={`px-3.5 py-1.5 rounded-full text-xs font-extrabold transition-all flex items-center gap-1.5 border ${
                   lifestyleFilters.dogFriendlyOnly
-                    ? "bg-cobalt text-white border-cobalt shadow-sm"
-                    : "bg-white text-cocoa border-cocoa/15 hover:bg-slate-50"
+                    ? "bg-sunset text-white border-sunset shadow-sm"
+                    : "bg-biscuit/45 text-cocoa border-cocoa/15 hover:bg-biscuit"
                 }`}
               >
                 <span>🐶 Friendly with Dogs</span>
@@ -281,15 +281,15 @@ export function DesktopFlow({
           </div>
 
           {/* Panel 2: Your Saved Pack Shelf (Hero Shortlist) */}
-          <div className="bg-custard rounded-[28px] p-5 shadow-2xl border border-cocoa/15 text-cocoa space-y-3.5">
+          <div className="bg-white/90 rounded-[28px] p-5 shadow-xl border border-cocoa/15 text-cocoa space-y-3.5">
             <div className="flex items-center justify-between pb-3 border-b border-cocoa/10">
               <div className="flex items-center gap-2">
-                <Heart className="w-4 h-4 text-sun fill-sun" />
+                <Heart className="w-4 h-4 text-candy fill-candy" />
                 <h2 className="font-extrabold text-sm tracking-tight">
                   Your Saved Pack ({savedPets.length})
                 </h2>
                 {appliedCount > 0 && (
-                  <span className="text-xs font-extrabold px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800">
+                  <span className="text-xs font-extrabold px-2 py-0.5 rounded-full bg-candy/20 text-sunset border border-candy/40">
                     {appliedCount} Applied 💌
                   </span>
                 )}
@@ -307,7 +307,7 @@ export function DesktopFlow({
                     <div
                       key={pet.id}
                       onClick={() => onViewProfile(pet)}
-                      className="p-3 rounded-2xl bg-white/70 border border-cocoa/10 flex items-center justify-between gap-2.5 hover:bg-white transition-all cursor-pointer group"
+                      className="p-3 rounded-2xl bg-biscuit/35 border border-cocoa/10 flex items-center justify-between gap-2.5 hover:bg-biscuit/70 transition-all cursor-pointer group"
                     >
                       <div className="flex items-center gap-2.5 min-w-0">
                         <img
@@ -321,7 +321,7 @@ export function DesktopFlow({
                               {pet.name}
                             </h3>
                             {hasApplied && (
-                              <span className="bg-emerald-600 text-white text-xs font-extrabold px-2 py-0.5 rounded-full shrink-0">
+                              <span className="bg-candy text-white text-xs font-extrabold px-2 py-0.5 rounded-full shrink-0">
                                 Applied
                               </span>
                             )}
@@ -329,7 +329,7 @@ export function DesktopFlow({
                           <p className="text-xs text-cocoa-muted font-medium truncate">
                             {pet.breed}
                           </p>
-                          <span className="text-xs font-bold text-cobalt">
+                          <span className="text-xs font-bold text-sunset">
                             ★ {pet.matchScore}% Match
                           </span>
                         </div>
@@ -343,8 +343,8 @@ export function DesktopFlow({
                           onClick={(e) => e.stopPropagation()}
                           className={`px-3 py-1.5 rounded-xl text-xs font-extrabold transition-colors flex items-center gap-1 shadow-sm ${
                             hasApplied
-                              ? "bg-emerald-600 hover:bg-emerald-700 text-white"
-                              : "bg-cobalt hover:bg-cobalt-dark text-white"
+                              ? "bg-candy hover:bg-candy-dark text-white"
+                              : "bg-sunset hover:bg-sunset-dark text-white"
                           }`}
                         >
                           <span>{hasApplied ? "Applied" : "Apply"}</span>
@@ -364,17 +364,17 @@ export function DesktopFlow({
           </div>
 
           {/* Panel 3: Interactive Shelter-Speak Decoder Carousel */}
-          <div className="bg-custard rounded-[28px] p-5 border border-cocoa/15 text-cocoa shadow-2xl space-y-2">
+          <div className="bg-white/90 rounded-[28px] p-5 border border-cocoa/15 text-cocoa shadow-xl space-y-2">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
-                <div className="w-6 h-6 rounded-full bg-sun flex items-center justify-center text-cocoa shadow-xs">
+                <div className="w-6 h-6 rounded-full bg-mango flex items-center justify-center text-white shadow-xs">
                   <HelpCircle className="w-3.5 h-3.5" />
                 </div>
-                <h3 className="font-extrabold text-xs text-cobalt uppercase tracking-wider">
+                <h3 className="font-extrabold text-xs text-sunset uppercase tracking-wider">
                   Shelter-Speak Decoder: &ldquo;{currentTip.term}&rdquo;
                 </h3>
               </div>
-              <span className="text-xs font-extrabold px-2.5 py-0.5 rounded-full bg-sun/30 text-cocoa border border-sun">
+              <span className="text-xs font-extrabold px-2.5 py-0.5 rounded-full bg-lilac/50 text-cocoa border border-lilac">
                 {currentTip.tag}
               </span>
             </div>
@@ -390,7 +390,7 @@ export function DesktopFlow({
               <button
                 type="button"
                 onClick={() => setTipIndex((prev) => (prev + 1) % SHELTER_SPEAK_TIPS.length)}
-                className="text-xs font-extrabold text-cobalt hover:text-cobalt-dark flex items-center gap-1 transition-colors"
+                className="text-xs font-extrabold text-sunset hover:text-sunset-dark flex items-center gap-1 transition-colors"
               >
                 <span>Next Decoder Tip</span>
                 <ChevronRight className="w-3.5 h-3.5" />
@@ -405,7 +405,7 @@ export function DesktopFlow({
       {/* Footer */}
       <footer className="pt-5 border-t border-cocoa/15 flex items-center justify-between text-xs font-bold text-cocoa/80">
         <span>Rescue inventory sourced from public rescue syndication (RescueGroups.org v5 format)</span>
-        <span className="font-extrabold text-cocoa">AdoptionMatch • Sunbaked Terracotta</span>
+        <span className="font-extrabold text-cocoa">AdoptionMatch • Candy Sunset Edition</span>
       </footer>
     </div>
   );

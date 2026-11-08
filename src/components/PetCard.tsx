@@ -49,10 +49,10 @@ export function PetCard({ pet, isApplied, onPass, onSave, onViewProfile }: PetCa
 
   return (
     <div className="w-full max-w-md mx-auto flex flex-col gap-3.5 select-none animate-fade-in">
-      {/* Main Electric Retro Pop Hero Card (Warm Custard Paper) */}
+      {/* Main Hero Card (Clean White Surface with Biscuit Warmth) */}
       <div 
         onClick={onViewProfile}
-        className="group relative bg-custard rounded-[32px] p-4 shadow-2xl border border-cocoa/15 text-cocoa flex flex-col gap-3.5 cursor-pointer transition-all duration-300 hover:scale-[1.01] hover:border-cocoa/30"
+        className="group relative bg-white rounded-[32px] p-4 shadow-xl border border-cocoa/15 text-cocoa flex flex-col gap-3.5 cursor-pointer transition-all duration-300 hover:scale-[1.01] hover:border-sunset/40"
       >
         {/* Photo Container */}
         <div className="relative h-80 rounded-[24px] overflow-hidden bg-cocoa shadow-inner">
@@ -76,22 +76,22 @@ export function PetCard({ pet, isApplied, onPass, onSave, onViewProfile }: PetCa
 
           {/* Top Floating Badges (Vibe Tag & Applied Tag) */}
           <div className="absolute top-7 left-3.5 right-3.5 flex items-center justify-between z-10 pointer-events-none">
-            <span className="text-xs font-extrabold px-3 py-1.5 rounded-full bg-white/95 text-cocoa backdrop-blur-md shadow-md border border-white/50">
+            <span className="text-xs font-extrabold px-3 py-1.5 rounded-full bg-white/95 text-cocoa backdrop-blur-md shadow-md border border-cocoa/10">
               {pet.vibeTag}
             </span>
 
             {isApplied && (
-              <span className="text-xs font-extrabold px-3 py-1.5 rounded-full bg-emerald-600 text-white shadow-md flex items-center gap-1.5 border border-white/30">
+              <span className="text-xs font-extrabold px-3 py-1.5 rounded-full bg-candy text-white shadow-md flex items-center gap-1.5 border border-white/30">
                 <CheckCircle2 className="w-3.5 h-3.5" />
                 <span>Applied</span>
               </span>
             )}
           </div>
 
-          {/* Match Score Floating Badge (Sun Yellow) */}
+          {/* Match Score Floating Badge (Golden Mango) */}
           {pet.matchScore && (
-            <div className="absolute bottom-3 left-3.5 bg-sun text-cocoa font-extrabold text-xs px-3.5 py-1.5 rounded-full shadow-lg flex items-center gap-1.5 border border-white/40 z-10">
-              <Sparkles className="w-3.5 h-3.5 fill-cocoa" />
+            <div className="absolute bottom-3 left-3.5 bg-mango text-white font-extrabold text-xs px-3.5 py-1.5 rounded-full shadow-lg flex items-center gap-1.5 border border-white/40 z-10">
+              <Sparkles className="w-3.5 h-3.5 fill-white" />
               <span>{pet.matchScore}% Match</span>
             </div>
           )}
@@ -138,20 +138,20 @@ export function PetCard({ pet, isApplied, onPass, onSave, onViewProfile }: PetCa
               {pet.name}, <span className="text-xl font-bold text-cocoa-muted">{pet.age}</span>
             </h2>
             <p className="text-xs font-semibold text-cocoa-muted flex items-center gap-1.5 mt-0.5">
-              <MapPin className="w-3.5 h-3.5 text-coral shrink-0" />
+              <MapPin className="w-3.5 h-3.5 text-sunset shrink-0" />
               <span>{pet.breed} • {pet.distanceMiles} mi away ({pet.shelter.city})</span>
             </p>
           </div>
 
-          <span className="text-xs font-extrabold text-cobalt group-hover:underline flex items-center gap-0.5">
+          <span className="text-xs font-extrabold text-sunset group-hover:underline flex items-center gap-0.5">
             Details ↗
           </span>
         </div>
 
-        {/* Nested Prompt Block */}
+        {/* Nested Prompt Block (Warm Biscuit Surface) */}
         {pet.prompts.length > 0 && (
-          <div className="bg-white/80 rounded-[22px] p-4 text-cocoa border border-cocoa/10 shadow-xs space-y-1">
-            <span className="text-xs uppercase tracking-wider font-extrabold text-coral block">
+          <div className="bg-biscuit/45 rounded-[22px] p-4 text-cocoa border border-cocoa/10 shadow-xs space-y-1">
+            <span className="text-xs uppercase tracking-wider font-extrabold text-sunset block">
               {pet.prompts[0].question}
             </span>
             <p className="text-xs font-bold leading-relaxed text-pretty text-cocoa/90">
@@ -167,8 +167,8 @@ export function PetCard({ pet, isApplied, onPass, onSave, onViewProfile }: PetCa
               key={idx}
               className={`text-xs font-bold px-3 py-1.5 rounded-full shadow-xs ${
                 note.type === "green_flag"
-                  ? "bg-white text-cocoa border border-cocoa/10"
-                  : "bg-sun/25 text-cocoa border border-sun/50"
+                  ? "bg-biscuit/60 text-cocoa border border-cocoa/10"
+                  : "bg-lilac/40 text-cocoa border border-lilac"
               }`}
             >
               {note.badgeText}
@@ -177,12 +177,12 @@ export function PetCard({ pet, isApplied, onPass, onSave, onViewProfile }: PetCa
         </div>
       </div>
 
-      {/* Action Controls: Custard Pass + Electric Cobalt Anchor */}
+      {/* Action Controls: Biscuit Pass + Candy Pink Spark CTA */}
       <div className="flex items-center gap-3 pt-0.5">
         <button
           type="button"
           onClick={onPass}
-          className="flex-1 py-3.5 px-4 rounded-full bg-custard hover:bg-white text-xs font-extrabold text-cocoa border border-cocoa/20 shadow-md transition-all active:scale-95 flex items-center justify-center gap-2"
+          className="flex-1 py-3.5 px-4 rounded-full bg-white hover:bg-biscuit/60 text-xs font-extrabold text-cocoa border border-cocoa/20 shadow-md transition-all active:scale-95 flex items-center justify-center gap-2"
         >
           <X className="w-4 h-4 text-cocoa-muted" />
           <span>Not My Fit</span>
@@ -191,9 +191,9 @@ export function PetCard({ pet, isApplied, onPass, onSave, onViewProfile }: PetCa
         <button
           type="button"
           onClick={onSave}
-          className="flex-1 py-3.5 px-5 rounded-full bg-cobalt hover:bg-cobalt-dark text-xs font-extrabold text-white shadow-xl shadow-cobalt/25 transition-all active:scale-95 flex items-center justify-center gap-2 group"
+          className="flex-1 py-3.5 px-5 rounded-full bg-candy hover:bg-candy-dark text-xs font-extrabold text-white shadow-xl shadow-candy/25 transition-all active:scale-95 flex items-center justify-center gap-2 group"
         >
-          <Heart className="w-4 h-4 text-sun fill-sun group-hover:scale-115 transition-transform" />
+          <Heart className="w-4 h-4 text-white fill-white group-hover:scale-115 transition-transform" />
           <span>Save & Match</span>
         </button>
       </div>

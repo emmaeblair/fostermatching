@@ -87,14 +87,14 @@ export function PetProfileModal({
 
   return (
     <div 
-      className="fixed inset-0 z-50 bg-black/65 backdrop-blur-sm flex items-end sm:items-center justify-center p-0 sm:p-4 animate-fade-in selection:bg-sun selection:text-cocoa"
+      className="fixed inset-0 z-50 bg-black/65 backdrop-blur-sm flex items-end sm:items-center justify-center p-0 sm:p-4 animate-fade-in selection:bg-candy selection:text-white"
       onClick={onClose}
       role="dialog"
       aria-modal="true"
       aria-label={`${pet.name}'s profile`}
     >
       <div 
-        className="w-full sm:max-w-2xl bg-custard text-cocoa rounded-t-[32px] sm:rounded-[32px] shadow-2xl max-h-[92vh] sm:max-h-[90vh] flex flex-col overflow-hidden border border-cocoa/20 animate-slide-up"
+        className="w-full sm:max-w-2xl bg-white text-cocoa rounded-t-[32px] sm:rounded-[32px] shadow-2xl max-h-[92vh] sm:max-h-[90vh] flex flex-col overflow-hidden border border-cocoa/20 animate-slide-up"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Mobile Drag Indicator Handle */}
@@ -103,7 +103,7 @@ export function PetProfileModal({
         </div>
 
         {/* Modal Top Bar */}
-        <div className="px-5 py-3.5 border-b border-cocoa/10 flex items-center justify-between shrink-0 bg-custard">
+        <div className="px-5 py-3.5 border-b border-cocoa/10 flex items-center justify-between shrink-0 bg-white">
           <div className="flex items-center gap-2.5 min-w-0">
             <span className="text-xl">
               {pet.species === "dog" ? "🐶" : "🐱"}
@@ -140,17 +140,17 @@ export function PetProfileModal({
                 className="w-full h-full object-cover"
               />
 
-              {/* Match Score Badge (Sun Yellow) */}
+              {/* Match Score Badge (Golden Mango) */}
               {pet.matchScore && (
-                <div className="absolute top-3 left-3 bg-sun text-cocoa font-extrabold text-xs px-3.5 py-1.5 rounded-full shadow-md flex items-center gap-1.5 border border-white/40">
-                  <Sparkles className="w-4 h-4 fill-cocoa" />
+                <div className="absolute top-3 left-3 bg-mango text-white font-extrabold text-xs px-3.5 py-1.5 rounded-full shadow-md flex items-center gap-1.5 border border-white/40">
+                  <Sparkles className="w-4 h-4 fill-white" />
                   <span>{pet.matchScore}% Lifestyle Match</span>
                 </div>
               )}
 
               {/* Applied Status Overlay Pill */}
               {isApplied && (
-                <div className="absolute top-3 right-3 bg-emerald-600 text-white font-extrabold text-xs px-3.5 py-1.5 rounded-full shadow-lg flex items-center gap-1.5 border border-white/30 animate-fade-in">
+                <div className="absolute top-3 right-3 bg-candy text-white font-extrabold text-xs px-3.5 py-1.5 rounded-full shadow-lg flex items-center gap-1.5 border border-white/30 animate-fade-in">
                   <CheckCircle2 className="w-4 h-4" />
                   <span>Application Submitted</span>
                 </div>
@@ -200,7 +200,7 @@ export function PetProfileModal({
                     onClick={() => setSelectedPhotoIndex(idx)}
                     className={`relative w-16 h-16 rounded-2xl overflow-hidden shrink-0 border-2 transition-all ${
                       selectedPhotoIndex === idx
-                        ? "border-cobalt scale-105 shadow-sm"
+                        ? "border-sunset scale-105 shadow-sm"
                         : "border-transparent opacity-70 hover:opacity-100"
                     }`}
                   >
@@ -222,7 +222,7 @@ export function PetProfileModal({
                 {pet.name}, <span className="text-xl font-bold text-cocoa-muted">{pet.age}</span>
               </h1>
               <p className="text-xs font-semibold text-cocoa-muted flex items-center gap-1.5 mt-1">
-                <MapPin className="w-4 h-4 text-coral shrink-0" />
+                <MapPin className="w-4 h-4 text-sunset shrink-0" />
                 <span>{pet.breed} • {pet.gender} • {pet.size} ({pet.weightLbs || 25} lbs) • {pet.distanceMiles} mi away</span>
               </p>
             </div>
@@ -232,7 +232,7 @@ export function PetProfileModal({
           </div>
 
           {/* Primary Action Sequence */}
-          <div className="p-4 rounded-[24px] bg-white/70 border border-cocoa/15 space-y-3">
+          <div className="p-4 rounded-[24px] bg-white/90 border border-cocoa/15 space-y-3">
             <div className="flex flex-col sm:flex-row gap-2.5">
               {/* Outbound Link Button (Auto-Marks as Applied & Saved) */}
               <a
@@ -244,7 +244,7 @@ export function PetProfileModal({
                     onToggleApplied();
                   }
                 }}
-                className="flex-1 py-3.5 px-5 rounded-full bg-cobalt text-white font-extrabold text-xs sm:text-sm flex items-center justify-center gap-2 hover:bg-cobalt-dark transition-all shadow-md active:scale-95"
+                className="flex-1 py-3.5 px-5 rounded-full bg-candy text-white font-extrabold text-xs sm:text-sm flex items-center justify-center gap-2 hover:bg-candy-dark transition-all shadow-md active:scale-95"
               >
                 <span>Apply on Shelter Site</span>
                 <ExternalLink className="w-4 h-4" />
@@ -256,13 +256,13 @@ export function PetProfileModal({
                 onClick={onToggleApplied}
                 className={`py-3.5 px-4 rounded-full text-xs font-extrabold flex items-center justify-center gap-2 transition-all shadow-sm ${
                   isApplied
-                    ? "bg-emerald-50 text-emerald-800 border border-emerald-300 hover:bg-emerald-100"
+                    ? "bg-candy/15 text-sunset border border-candy/40 hover:bg-candy/25"
                     : "bg-white text-cocoa border border-cocoa/20 hover:bg-slate-50"
                 }`}
               >
                 {isApplied ? (
                   <>
-                    <Check className="w-4 h-4 text-emerald-600" />
+                    <Check className="w-4 h-4 text-sunset" />
                     <span>Applied to Shelter</span>
                   </>
                 ) : (
@@ -279,20 +279,20 @@ export function PetProfileModal({
                 onClick={onToggleSave}
                 className={`w-12 h-12 rounded-full flex items-center justify-center transition-all shrink-0 border ${
                   isSaved
-                    ? "bg-sun/30 border-sun text-cocoa shadow-sm"
+                    ? "bg-candy/20 border-candy text-candy shadow-sm"
                     : "bg-white border-cocoa/20 text-cocoa-muted hover:text-cocoa hover:bg-slate-50"
                 }`}
                 aria-label={isSaved ? "Saved to pack" : "Save to pack"}
                 title={isSaved ? "In your pack" : "Add to pack"}
               >
-                <Heart className={`w-5 h-5 ${isSaved ? "fill-coral text-coral" : ""}`} />
+                <Heart className={`w-5 h-5 ${isSaved ? "fill-candy text-candy" : ""}`} />
               </button>
 
               {/* Share Button */}
               <button
                 type="button"
                 onClick={handleShare}
-                className="w-12 h-12 rounded-full bg-white border border-cocoa/20 text-cocoa hover:text-cobalt flex items-center justify-center transition-all shrink-0 hover:bg-slate-50"
+                className="w-12 h-12 rounded-full bg-white border border-cocoa/20 text-cocoa hover:text-sunset flex items-center justify-center transition-all shrink-0 hover:bg-slate-50"
                 aria-label="Share pet profile"
                 title="Copy share link"
               >
@@ -301,7 +301,7 @@ export function PetProfileModal({
             </div>
 
             {copiedShare && (
-              <p className="text-xs font-bold text-center text-emerald-700 animate-fade-in">
+              <p className="text-xs font-bold text-center text-sunset animate-fade-in">
                 ✓ Link copied to clipboard! Share it with family or roommates.
               </p>
             )}
@@ -310,13 +310,13 @@ export function PetProfileModal({
           {/* Decoded Lifestyle Compatibility Matrix */}
           <div className="space-y-3">
             <h3 className="font-extrabold text-sm text-cocoa flex items-center gap-2">
-              <Sparkles className="w-4 h-4 text-coral" />
+              <Sparkles className="w-4 h-4 text-sunset" />
               <span>Lifestyle Compatibility Decoder</span>
             </h3>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
               {/* Dogs */}
-              <div className="p-3.5 rounded-2xl bg-white/70 border border-cocoa/10 flex items-center justify-between">
+              <div className="p-3.5 rounded-2xl bg-white/90 border border-cocoa/10 flex items-center justify-between">
                 <div className="flex items-center gap-2.5">
                   <span className="text-base">🐕</span>
                   <div>
@@ -332,17 +332,17 @@ export function PetProfileModal({
                 </div>
                 <span className={`text-xs font-extrabold px-2.5 py-1 rounded-full ${
                   pet.compatibility.goodWithDogs === true
-                    ? "bg-emerald-100 text-emerald-900"
+                    ? "bg-candy/15 text-sunset border border-candy/30"
                     : pet.compatibility.goodWithDogs === false
-                    ? "bg-sun/30 text-cocoa border border-sun"
-                    : "bg-slate-200 text-slate-700"
+                    ? "bg-mango/20 text-cocoa border border-mango/40"
+                    : "bg-cocoa/10 text-cocoa"
                 }`}>
                   {pet.compatibility.goodWithDogs === true ? "Friendly" : pet.compatibility.goodWithDogs === false ? "Solo Dog" : "Unknown"}
                 </span>
               </div>
 
               {/* Cats */}
-              <div className="p-3.5 rounded-2xl bg-white/70 border border-cocoa/10 flex items-center justify-between">
+              <div className="p-3.5 rounded-2xl bg-white/90 border border-cocoa/10 flex items-center justify-between">
                 <div className="flex items-center gap-2.5">
                   <span className="text-base">🐈</span>
                   <div>
@@ -358,17 +358,17 @@ export function PetProfileModal({
                 </div>
                 <span className={`text-xs font-extrabold px-2.5 py-1 rounded-full ${
                   pet.compatibility.goodWithCats === true
-                    ? "bg-emerald-100 text-emerald-900"
+                    ? "bg-candy/15 text-sunset border border-candy/30"
                     : pet.compatibility.goodWithCats === false
-                    ? "bg-sun/30 text-cocoa border border-sun"
-                    : "bg-slate-200 text-slate-700"
+                    ? "bg-mango/20 text-cocoa border border-mango/40"
+                    : "bg-cocoa/10 text-cocoa"
                 }`}>
                   {pet.compatibility.goodWithCats === true ? "Cat Safe" : pet.compatibility.goodWithCats === false ? "No Cats" : "Untested"}
                 </span>
               </div>
 
               {/* Kids */}
-              <div className="p-3.5 rounded-2xl bg-white/70 border border-cocoa/10 flex items-center justify-between">
+              <div className="p-3.5 rounded-2xl bg-white/90 border border-cocoa/10 flex items-center justify-between">
                 <div className="flex items-center gap-2.5">
                   <Users className="w-4 h-4 text-cocoa" />
                   <div>
@@ -382,15 +382,15 @@ export function PetProfileModal({
                 </div>
                 <span className={`text-xs font-extrabold px-2.5 py-1 rounded-full ${
                   pet.compatibility.goodWithKids === true
-                    ? "bg-emerald-100 text-emerald-900"
-                    : "bg-sun/30 text-cocoa border border-sun"
+                    ? "bg-candy/15 text-sunset border border-candy/30"
+                    : "bg-mango/20 text-cocoa border border-mango/40"
                 }`}>
                   {pet.compatibility.goodWithKids === true ? "Kid Friendly" : "Teens+"}
                 </span>
               </div>
 
               {/* Living Space */}
-              <div className="p-3.5 rounded-2xl bg-white/70 border border-cocoa/10 flex items-center justify-between">
+              <div className="p-3.5 rounded-2xl bg-white/90 border border-cocoa/10 flex items-center justify-between">
                 <div className="flex items-center gap-2.5">
                   <Home className="w-4 h-4 text-cocoa" />
                   <div>
@@ -404,8 +404,8 @@ export function PetProfileModal({
                 </div>
                 <span className={`text-xs font-extrabold px-2.5 py-1 rounded-full ${
                   pet.compatibility.apartmentFriendly
-                    ? "bg-emerald-100 text-emerald-900"
-                    : "bg-sun/30 text-cocoa border border-sun"
+                    ? "bg-candy/15 text-sunset border border-candy/30"
+                    : "bg-mango/20 text-cocoa border border-mango/40"
                 }`}>
                   {pet.compatibility.apartmentFriendly ? "Apartment OK" : "Yard Needed"}
                 </span>
@@ -413,9 +413,9 @@ export function PetProfileModal({
             </div>
 
             {/* Energy Level Bar */}
-            <div className="p-4 rounded-2xl bg-white/70 border border-cocoa/10 flex items-center justify-between">
+            <div className="p-4 rounded-2xl bg-white/90 border border-cocoa/10 flex items-center justify-between">
               <div className="flex items-center gap-2.5">
-                <Activity className="w-4 h-4 text-coral" />
+                <Activity className="w-4 h-4 text-sunset" />
                 <div>
                   <h4 className="font-bold text-xs text-cocoa">Energy Level: {pet.compatibility.energyLevel}</h4>
                   <p className="text-xs text-cocoa-muted font-medium">
@@ -429,17 +429,17 @@ export function PetProfileModal({
               </div>
 
               <div className="flex gap-1.5 shrink-0">
-                <div className={`w-6 h-2 rounded-full ${pet.compatibility.energyLevel ? "bg-sun" : "bg-cocoa/15"}`} />
-                <div className={`w-6 h-2 rounded-full ${pet.compatibility.energyLevel === "Mid" || pet.compatibility.energyLevel === "High" ? "bg-sun" : "bg-cocoa/15"}`} />
-                <div className={`w-6 h-2 rounded-full ${pet.compatibility.energyLevel === "High" ? "bg-sun" : "bg-cocoa/15"}`} />
+                <div className={`w-6 h-2 rounded-full ${pet.compatibility.energyLevel ? "bg-sunset" : "bg-cocoa/15"}`} />
+                <div className={`w-6 h-2 rounded-full ${pet.compatibility.energyLevel === "Mid" || pet.compatibility.energyLevel === "High" ? "bg-sunset" : "bg-cocoa/15"}`} />
+                <div className={`w-6 h-2 rounded-full ${pet.compatibility.energyLevel === "High" ? "bg-sunset" : "bg-cocoa/15"}`} />
               </div>
             </div>
           </div>
 
           {/* Real Talk from Foster Parent */}
           {pet.fosterQuote && (
-            <div className="p-4 rounded-[24px] bg-sun/20 border border-sun/40 space-y-1.5 shadow-xs text-cocoa">
-              <h3 className="font-extrabold text-xs text-coral uppercase tracking-wider flex items-center gap-1.5">
+            <div className="p-4 rounded-[24px] bg-biscuit/70 border border-cocoa/15 space-y-1.5 shadow-xs text-cocoa">
+              <h3 className="font-extrabold text-xs text-sunset uppercase tracking-wider flex items-center gap-1.5">
                 <span>💬 Real Talk from Foster Parent</span>
               </h3>
               <p className="text-xs font-bold leading-relaxed text-pretty">
@@ -463,25 +463,25 @@ export function PetProfileModal({
           {/* Health & Medical Vitals Strip */}
           <div className="space-y-2">
             <h3 className="font-extrabold text-sm text-cocoa flex items-center gap-2">
-              <ShieldCheck className="w-4 h-4 text-emerald-600" />
+              <ShieldCheck className="w-4 h-4 text-sunset" />
               <span>Health & Medical Records</span>
             </h3>
 
             <div className="flex flex-wrap gap-2">
               <span className="text-xs font-bold px-3 py-1.5 rounded-full bg-white text-cocoa border border-cocoa/15 flex items-center gap-1.5">
-                <Check className="w-3.5 h-3.5 text-emerald-600" />
+                <Check className="w-3.5 h-3.5 text-sunset" />
                 Spayed / Neutered
               </span>
               <span className="text-xs font-bold px-3 py-1.5 rounded-full bg-white text-cocoa border border-cocoa/15 flex items-center gap-1.5">
-                <Check className="w-3.5 h-3.5 text-emerald-600" />
+                <Check className="w-3.5 h-3.5 text-sunset" />
                 Vaccinations Up to Date
               </span>
               <span className="text-xs font-bold px-3 py-1.5 rounded-full bg-white text-cocoa border border-cocoa/15 flex items-center gap-1.5">
-                <Check className="w-3.5 h-3.5 text-emerald-600" />
+                <Check className="w-3.5 h-3.5 text-sunset" />
                 Microchipped
               </span>
               {pet.health?.specialNeeds && (
-                <span className="text-xs font-bold px-3 py-1.5 rounded-full bg-sun/25 text-cocoa border border-sun/50">
+                <span className="text-xs font-bold px-3 py-1.5 rounded-full bg-lilac/50 text-cocoa border border-lilac">
                   {pet.health.specialNeeds}
                 </span>
               )}
@@ -489,8 +489,8 @@ export function PetProfileModal({
           </div>
 
           {/* Shelter Transparency Footer Note */}
-          <div className="p-3.5 rounded-2xl bg-white/70 border border-cocoa/15 flex items-start gap-2.5">
-            <Info className="w-4 h-4 text-coral shrink-0 mt-0.5" />
+          <div className="p-3.5 rounded-2xl bg-white/90 border border-cocoa/15 flex items-start gap-2.5">
+            <Info className="w-4 h-4 text-sunset shrink-0 mt-0.5" />
             <p className="text-xs text-cocoa-muted leading-relaxed font-medium">
               AdoptionMatch is an independent discovery platform. Official screening, meet-and-greets, and adoption fees are managed directly by <strong>{pet.shelter.name}</strong> ({pet.shelter.city}, {pet.shelter.state}).
             </p>

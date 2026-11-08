@@ -41,11 +41,11 @@ export function SessionTray({ savedPets, isApplied, onSelectPet }: SessionTrayPr
                   src={pet.photos[0]}
                   alt={pet.name}
                   className={`inline-block w-8 h-8 rounded-full ring-2 object-cover shadow-sm ${
-                    hasApplied ? "ring-emerald-500" : "ring-custard"
+                    hasApplied ? "ring-candy" : "ring-white"
                   }`}
                 />
                 {hasApplied && (
-                  <span className="absolute -top-0.5 -right-0.5 w-2.5 h-2.5 bg-emerald-500 rounded-full border border-white shadow-xs" />
+                  <span className="absolute -top-0.5 -right-0.5 w-2.5 h-2.5 bg-candy rounded-full border border-white shadow-xs" />
                 )}
               </button>
             );
