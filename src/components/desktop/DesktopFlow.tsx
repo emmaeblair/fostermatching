@@ -123,7 +123,7 @@ export function DesktopFlow({
               <div className="flex items-center gap-2 text-[11px] font-bold text-slate-400 mt-1">
                 <Keyboard className="w-3.5 h-3.5 text-slate-400" />
                 <span className="flex items-center gap-1">
-                  Use <kbd className="px-1.5 py-0.5 rounded bg-white border border-slate-300 text-slate-700 shadow-xs">←</kbd> <kbd className="px-1.5 py-0.5 rounded bg-white border border-slate-300 text-slate-700 shadow-xs">→</kbd> keys to flip through photos
+                  Use <kbd className="px-1.5 py-0.5 rounded bg-white border border-slate-300 text-slate-700 shadow-sm">←</kbd> <kbd className="px-1.5 py-0.5 rounded bg-white border border-slate-300 text-slate-700 shadow-sm">→</kbd> keys to flip through photos
                 </span>
               </div>
             </div>
