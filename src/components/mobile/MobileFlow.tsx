@@ -17,6 +17,7 @@ interface MobileFlowProps {
   toastMessage: string | null;
   onViewProfile: (pet: Pet) => void;
   isApplied: (petId: string) => boolean;
+  onOpenDrop?: () => void;
 }
 
 export function MobileFlow({
@@ -31,6 +32,7 @@ export function MobileFlow({
   toastMessage,
   onViewProfile,
   isApplied,
+  onOpenDrop,
 }: MobileFlowProps) {
   return (
     <main className="min-h-screen px-4 py-4 flex flex-col justify-between max-w-sm mx-auto bg-biscuit selection:bg-candy selection:text-white">
@@ -43,6 +45,15 @@ export function MobileFlow({
           <h1 className="font-extrabold text-base tracking-tight text-cocoa">
             AdoptionMatch
           </h1>
+          {onOpenDrop && (
+            <button
+              type="button"
+              onClick={onOpenDrop}
+              className="px-2 py-0.5 rounded-full text-xs font-extrabold bg-mango text-white shadow-xs"
+            >
+              ✨ Drop
+            </button>
+          )}
         </div>
 
         {/* Mini Species Toggle */}

@@ -13,3 +13,47 @@ body {
   font-family: var(--font-plus-jakarta), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   -webkit-font-smoothing: antialiased;
 }
+
+@keyframes dropEntrance {
+  0% {
+    opacity: 0;
+    transform: translateY(-160px) scale(0.85);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes gentleFloat {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes sparkPop {
+  0% {
+    transform: scale(0.92);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.animate-drop-bounce {
+  animation: dropEntrance 0.65s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animate-float-idle {
+  animation: gentleFloat 3.2s ease-in-out infinite;
+}
+
+.animate-spark-pop {
+  animation: sparkPop 0.3s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+

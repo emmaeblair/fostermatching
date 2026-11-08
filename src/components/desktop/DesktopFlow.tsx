@@ -56,6 +56,7 @@ interface DesktopFlowProps {
   toastMessage: string | null;
   onViewProfile: (pet: Pet) => void;
   isApplied: (petId: string) => boolean;
+  onOpenDrop?: () => void;
 }
 
 export function DesktopFlow({
@@ -75,6 +76,7 @@ export function DesktopFlow({
   toastMessage,
   onViewProfile,
   isApplied,
+  onOpenDrop,
 }: DesktopFlowProps) {
   const [tipIndex, setTipIndex] = useState(0);
 
@@ -144,10 +146,23 @@ export function DesktopFlow({
           </button>
         </div>
 
-        {/* Right Location Badge */}
-        <div className="flex items-center gap-2 text-xs font-extrabold px-4 py-1.5 rounded-full bg-white/90 text-cocoa shadow-md border border-cocoa/15">
-          <MapPin className="w-4 h-4 text-sunset" />
-          <span>Seattle, WA • 25 mi</span>
+        {/* Right Actions: Daily Drop & Location Badge */}
+        <div className="flex items-center gap-2.5">
+          {onOpenDrop && (
+            <button
+              type="button"
+              onClick={onOpenDrop}
+              className="px-3.5 py-1.5 rounded-full text-xs font-extrabold bg-mango hover:bg-mango-dark text-white shadow-md transition-all flex items-center gap-1.5 border border-white/30 active:scale-95"
+            >
+              <Sparkles className="w-3.5 h-3.5 fill-white" />
+              <span>Daily Drop</span>
+            </button>
+          )}
+
+          <div className="flex items-center gap-2 text-xs font-extrabold px-4 py-1.5 rounded-full bg-white/90 text-cocoa shadow-md border border-cocoa/15">
+            <MapPin className="w-4 h-4 text-sunset" />
+            <span>Seattle, WA • 25 mi</span>
+          </div>
         </div>
       </header>
 
