@@ -1,0 +1,219 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-08T19:55:40.000Z",
+  "title": "Design System: AdoptionMatch",
+  "extensions": {
+    "colorMeta": {
+      "primary": {
+        "role": "primary",
+        "displayName": "Sky Periwinkle",
+        "canonical": "#93B1FF",
+        "tonalRamp": [
+          "#283866",
+          "#3D5499",
+          "#5572CC",
+          "#7089D6",
+          "#93B1FF",
+          "#B8CBFF",
+          "#DCE5FF",
+          "#F2F5FF"
+        ]
+      },
+      "secondary": {
+        "role": "secondary",
+        "displayName": "Sunny Marigold",
+        "canonical": "#FFAA33",
+        "tonalRamp": [
+          "#663F00",
+          "#995F00",
+          "#CC7E00",
+          "#D98818",
+          "#FFAA33",
+          "#FFC266",
+          "#FFDF99",
+          "#FFF4D6"
+        ]
+      },
+      "surface-custard": {
+        "role": "tertiary",
+        "displayName": "Custard Cream",
+        "canonical": "#FFF7E8",
+        "tonalRamp": [
+          "#665330",
+          "#997D48",
+          "#CCA660",
+          "#F5E9CE",
+          "#FFF7E8",
+          "#FFFBF2",
+          "#FFFDFA",
+          "#FFFFFF"
+        ]
+      },
+      "neutral-jet": {
+        "role": "neutral",
+        "displayName": "Jet Ink",
+        "canonical": "#141416",
+        "tonalRamp": [
+          "#000000",
+          "#0D0D0F",
+          "#141416",
+          "#232328",
+          "#42424B",
+          "#686874",
+          "#9898A4",
+          "#DCDCE1"
+        ]
+      },
+      "neutral-bg": {
+        "role": "neutral",
+        "displayName": "Ice Canvas",
+        "canonical": "#F4F6FB",
+        "tonalRamp": [
+          "#313645",
+          "#4E576F",
+          "#737F9F",
+          "#9EABCE",
+          "#CAD3E8",
+          "#E4E9F5",
+          "#F4F6FB",
+          "#FAFBFE"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display / Pet Name",
+        "purpose": "Hero pet names and main headlines."
+      },
+      "body": {
+        "displayName": "Body Text",
+        "purpose": "Prompt quotes, foster descriptions, and general readability."
+      },
+      "label": {
+        "displayName": "Badge & Vitals Label",
+        "purpose": "Decoded behavioral chips and scannable specs."
+      }
+    },
+    "shadows": [
+      {
+        "name": "card-rest",
+        "value": "0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.1)",
+        "purpose": "Floats the primary periwinkle card off the canvas."
+      },
+      {
+        "name": "pill-anchor",
+        "value": "0 4px 6px -1px rgba(0,0,0,0.1)",
+        "purpose": "Gives the jet-black action button tactile depth."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-spring",
+        "value": "cubic-bezier(0.34, 1.56, 0.64, 1)",
+        "purpose": "Playful pop-in for session bubbles and card mounts."
+      },
+      {
+        "name": "transition-standard",
+        "value": "all 0.2s ease-in-out",
+        "purpose": "Button hovers, photo switches, and active states."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "mobile",
+        "value": "384px"
+      },
+      {
+        "name": "desktop",
+        "value": "1024px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Action Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Solid jet-black anchor pill button for matching & saving.",
+      "html": "<button class=\"ds-btn-primary\">♥ Save & Match</button>",
+      "css": ".ds-btn-primary { background: #141416; color: #ffffff; padding: 12px 24px; font-size: 13px; font-weight: 800; border-radius: 9999px; border: none; cursor: pointer; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.15); transition: all 0.2s ease; } .ds-btn-primary:hover { background: #000000; transform: translateY(-1px); box-shadow: 0 6px 8px -1px rgba(0,0,0,0.2); } .ds-btn-primary:active { transform: scale(0.96); }"
+    },
+    {
+      "name": "Secondary Pass Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Clean white pill button for passing on non-matches.",
+      "html": "<button class=\"ds-btn-secondary\">✕ Not My Fit</button>",
+      "css": ".ds-btn-secondary { background: #ffffff; color: #141416; padding: 12px 24px; font-size: 13px; font-weight: 800; border-radius: 9999px; border: none; cursor: pointer; box-shadow: 0 2px 4px rgba(0,0,0,0.06); transition: all 0.2s ease; } .ds-btn-secondary:hover { background: #f8fafc; transform: translateY(-1px); } .ds-btn-secondary:active { transform: scale(0.96); }"
+    },
+    {
+      "name": "Match Score Badge",
+      "kind": "chip",
+      "refersTo": "chip-match",
+      "description": "Sunny marigold star pill celebrating lifestyle compatibility.",
+      "html": "<span class=\"ds-chip-match\">★ 92% Match</span>",
+      "css": ".ds-chip-match { background: #FFAA33; color: #141416; font-size: 11px; font-weight: 800; padding: 4px 12px; border-radius: 9999px; display: inline-flex; align-items: center; gap: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }"
+    },
+    {
+      "name": "Conversational Prompt Container",
+      "kind": "card",
+      "refersTo": "prompt-container",
+      "description": "Warm custard cream box for first-person pet answers.",
+      "html": "<div class=\"ds-prompt-box\"><span class=\"ds-prompt-label\">THE WAY TO WIN ME OVER...</span><p class=\"ds-prompt-text\">\"String cheese cubes & slow chin scratches while you write code.\"</p></div>",
+      "css": ".ds-prompt-box { background: #FFF7E8; color: #141416; padding: 12px 14px; border-radius: 20px; box-shadow: 0 1px 2px rgba(0,0,0,0.04); } .ds-prompt-label { font-size: 10px; font-weight: 800; letter-spacing: 0.05em; color: #D98818; display: block; margin-bottom: 4px; text-transform: uppercase; } .ds-prompt-text { font-size: 13px; font-weight: 700; line-height: 1.4; margin: 0; }"
+    },
+    {
+      "name": "Saved Session Bubble Tray",
+      "kind": "custom",
+      "refersTo": "session-tray",
+      "description": "Horizontal tray of overlapping circular avatars.",
+      "html": "<div class=\"ds-tray\"><span class=\"ds-tray-title\">Saved (3):</span><div class=\"ds-avatars\"><div class=\"ds-avatar\" style=\"background:#93B1FF;\">🐕</div><div class=\"ds-avatar\" style=\"background:#FFAA33;\">🐩</div><div class=\"ds-avatar\" style=\"background:#FFF7E8;\">🐱</div></div></div>",
+      "css": ".ds-tray { display: flex; align-items: center; justify-content: space-between; padding-top: 10px; border-top: 1px solid rgba(0,0,0,0.06); } .ds-tray-title { font-size: 11px; font-weight: 800; text-transform: uppercase; color: #141416; } .ds-avatars { display: flex; margin-left: 8px; } .ds-avatar { width: 30px; height: 30px; border-radius: 9999px; border: 2px solid #ffffff; display: flex; align-items: center; justify-content: center; font-size: 13px; margin-left: -8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Dopamine Dog Park",
+    "overview": "AdoptionMatch replaces clinical, intimidating shelter directories with a bold, joyful, and highly tactile dating-app experience. Rooted in modern 'Dopamine UI' aesthetics, the visual world uses confident surface color-blocking—Sky Periwinkle, Sunny Marigold, and Custard Cream—anchored by solid Jet-Black pill controls so the interface feels energetic and delightful without slipping into childishness.\n\nThe design system prioritizes emotional connection and human warmth. Rather than treating rescue pets like cold inventory items, cards present authentic photos alongside conversational prompts and decoded lifestyle requirements. The layout explicitly rejects sterile 'shelter blue', harsh danger-red error banners, and clinical classified-ad grids.",
+    "keyCharacteristics": [
+      "Vibrant Surface Color-Blocking: Containers and cards carry rich background hues rather than plain white boxes with tiny colored text.",
+      "The Jet-Black Anchor: High-energy pastels are grounded by deep Jet-Black pill buttons (#141416) for instant hierarchy and polish.",
+      "Pillowy Squircle Geometry: Generous corner radii (rounded-[28px]) create organic, touchable containers that invite interaction.",
+      "Compassionate Non-Judgmental Signaling: Warm amber/marigold tones replace alarming danger-reds for behavioral notes."
+    ],
+    "rules": [
+      {
+        "name": "The Black Anchor Rule",
+        "body": "High-energy pastels (Sky Periwinkle, Custard Cream, and Marigold) must always be grounded by solid Jet-Black (#141416) pill buttons. The black anchor prevents playful color-blocking from looking like a toy and gives the UI a sleek, intentional finish.",
+        "section": "colors"
+      },
+      {
+        "name": "The Compassion Over Alarm Rule",
+        "body": "Behavioral nuances and shelter requirements (e.g., 'Needs to be only dog', 'Needs fenced yard') must be styled in warm amber or soft marigold tones, never alarmist hospital red. We inform the adopter without stigmatizing the animal.",
+        "section": "colors"
+      },
+      {
+        "name": "The Scannable Vitals Rule",
+        "body": "Core pet vitals (name, age, breed, distance) must be legible within 1.5 seconds. They must never be obscured by photo gradients or low-contrast text.",
+        "section": "typography"
+      },
+      {
+        "name": "The Tonal Surface Rule",
+        "body": "Depth is created first by contrasting rich color-blocked surfaces (Periwinkle card on Ice canvas; Custard box on Periwinkle card). Shadows exist only to lift interactive elements off the background, never to create borders.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do anchor bright pastel surfaces with solid Jet-Black (#141416) pill buttons.",
+      "Do use ‹ and › tap arrows and keyboard arrow keys for photo navigation to avoid gesture conflicts with card swiping.",
+      "Do frame pet traits with conversational prompts ('The way to win me over...') rather than raw database labels.",
+      "Do reset the photo carousel to index 0 whenever a new pet card mounts.",
+      "Do present shelter caveats in warm amber tones rather than danger-red error badges."
+    ],
+    "donts": [
+      "Don't use sterile 'shelter blue' or clinical grey tables.",
+      "Don't use sharp 90-degree corners on cards or buttons; maintain the squircle language (rounded-[20px] to rounded-[28px]).",
+      "Don't trap users in a black-box algorithm; always keep active filter chips visible and editable.",
+      "Don't use negative rejection labels ('No', 'Reject', 'Dislike') on pass buttons; use compassionate framing ('Not My Fit')."
+    ]
+  }
+}
