@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import { MOCK_PETS } from "@/data/mock-pets";
 import { Pet, Species } from "@/types/pet";
 
@@ -8,6 +8,8 @@ export function usePetDeck() {
   const [selectedSpecies, setSelectedSpecies] = useState<Species | "all">("all");
   const [currentIndex, setCurrentIndex] = useState(0);
   const [savedPets, setSavedPets] = useState<Pet[]>([]);
+  const [appliedPetIds, setAppliedPetIds] = useState<string[]>([]);
+  const [inspectingPet, setInspectingPet] = useState<Pet | null>(null);
   const [toastMessage, setToastMessage] = useState<string | null>(null);
 
   // Filter available pets based on selected species
@@ -38,6 +40,51 @@ export function usePetDeck() {
     setCurrentIndex((prev) => prev + 1);
   }, [activePet, savedPets, showToast]);
 
+  const toggleSavePet = useCallback((pet: Pet) => {
+    setSavedPets((prev) => {
+      const exists = prev.some((p) => p.id === pet.id);
+      if (exists) {
+        showToast(`Removed ${pet.name} from your pack.`);
+        return prev.filter((p) => p.id !== pet.id);
+      } else {
+        showToast(`Saved ${pet.name} to your pack! 🐾`);
+        return [...prev, pet];
+      }
+    });
+  }, [showToast]);
+
+  const isSaved = useCallback((petId: string) => {
+    return savedPets.some((p) => p.id === petId);
+  }, [savedPets]);
+
+  const toggleApplied = useCallback((petId: string) => {
+    setAppliedPetIds((prev) => {
+      const isAlreadyApplied = prev.includes(petId);
+      const targetPet = MOCK_PETS.find((p) => p.id === petId);
+      const petName = targetPet ? targetPet.name : "this pet";
+
+      if (isAlreadyApplied) {
+        showToast(`Unmarked application for ${petName}`);
+        return prev.filter((id) => id !== petId);
+      } else {
+        showToast(`Marked as applied for ${petName}! Best of luck! 💌`);
+        return [...prev, petId];
+      }
+    });
+  }, [showToast]);
+
+  const isApplied = useCallback((petId: string) => {
+    return appliedPetIds.includes(petId);
+  }, [appliedPetIds]);
+
+  const openProfile = useCallback((pet: Pet) => {
+    setInspectingPet(pet);
+  }, []);
+
+  const closeProfile = useCallback(() => {
+    setInspectingPet(null);
+  }, []);
+
   const handleRestart = useCallback(() => {
     setCurrentIndex(0);
   }, []);
@@ -51,7 +98,15 @@ export function usePetDeck() {
     activePet,
     isDeckEmpty,
     savedPets,
+    appliedPetIds,
+    inspectingPet,
     toastMessage,
+    isSaved,
+    isApplied,
+    toggleSavePet,
+    toggleApplied,
+    openProfile,
+    closeProfile,
     handlePass,
     handleSave,
     handleRestart,

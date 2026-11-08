@@ -23,6 +23,8 @@ interface DesktopFlowProps {
   onSave: () => void;
   onRestart: () => void;
   toastMessage: string | null;
+  onViewProfile: (pet: Pet) => void;
+  isApplied: (petId: string) => boolean;
 }
 
 export function DesktopFlow({
@@ -35,6 +37,8 @@ export function DesktopFlow({
   onSave,
   onRestart,
   toastMessage,
+  onViewProfile,
+  isApplied,
 }: DesktopFlowProps) {
   return (
     <div className="min-h-screen bg-[#F4F6FB] px-8 py-8 flex flex-col justify-between max-w-6xl mx-auto">
@@ -114,9 +118,10 @@ export function DesktopFlow({
             <div className="w-full flex flex-col items-center gap-3">
               <PetCard
                 pet={activePet}
+                isApplied={isApplied(activePet.id)}
                 onPass={onPass}
                 onSave={onSave}
-                onViewProfile={() => window.open(activePet.shelter.applicationUrl, "_blank")}
+                onViewProfile={() => onViewProfile(activePet)}
               />
 
               {/* Keyboard Navigation Tip for Desktop Users */}
@@ -163,47 +168,65 @@ export function DesktopFlow({
                 </h2>
               </div>
               <span className="text-xs font-semibold text-slate-400">
-                Ready to apply when you are
+                Click any pet to view full profile & lifestyle decoder
               </span>
             </div>
 
             {savedPets.length > 0 ? (
-              <div className="grid grid-cols-2 gap-3 max-h-[280px] overflow-y-auto pr-1">
-                {savedPets.map((pet) => (
-                  <div
-                    key={pet.id}
-                    className="p-2.5 rounded-2xl bg-custard/50 border border-custard-dark/40 flex items-center justify-between gap-2.5 hover:bg-custard transition-colors"
-                  >
-                    <div className="flex items-center gap-2.5 min-w-0">
-                      <img
-                        src={pet.photos[0]}
-                        alt={pet.name}
-                        className="w-11 h-11 rounded-xl object-cover shrink-0 shadow-sm"
-                      />
-                      <div className="min-w-0">
-                        <h3 className="font-extrabold text-xs text-jet truncate">
-                          {pet.name}
-                        </h3>
-                        <p className="text-xs text-slate-500 font-medium truncate">
-                          {pet.breed}
-                        </p>
-                        <span className="text-xs font-bold text-marigold-dark">
-                          ★ {pet.matchScore}% Match
-                        </span>
+              <div className="grid grid-cols-2 gap-3 max-h-[300px] overflow-y-auto pr-1">
+                {savedPets.map((pet) => {
+                  const hasApplied = isApplied(pet.id);
+                  return (
+                    <div
+                      key={pet.id}
+                      onClick={() => onViewProfile(pet)}
+                      className="p-3 rounded-2xl bg-custard/50 border border-custard-dark/40 flex items-center justify-between gap-2.5 hover:bg-custard transition-all cursor-pointer group"
+                    >
+                      <div className="flex items-center gap-2.5 min-w-0">
+                        <img
+                          src={pet.photos[0]}
+                          alt={pet.name}
+                          className="w-12 h-12 rounded-xl object-cover shrink-0 shadow-sm group-hover:scale-105 transition-transform"
+                        />
+                        <div className="min-w-0">
+                          <div className="flex items-center gap-1.5">
+                            <h3 className="font-extrabold text-xs text-jet truncate">
+                              {pet.name}
+                            </h3>
+                            {hasApplied && (
+                              <span className="bg-emerald-100 text-emerald-800 text-xs font-extrabold px-1.5 py-0.5 rounded-full shrink-0">
+                                Applied
+                              </span>
+                            )}
+                          </div>
+                          <p className="text-xs text-slate-500 font-medium truncate">
+                            {pet.breed}
+                          </p>
+                          <span className="text-xs font-bold text-marigold-dark">
+                            ★ {pet.matchScore}% Match
+                          </span>
+                        </div>
+                      </div>
+
+                      <div className="flex items-center gap-1.5 shrink-0">
+                        <a
+                          href={pet.shelter.applicationUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={(e) => e.stopPropagation()}
+                          className={`px-3 py-1.5 rounded-xl text-xs font-extrabold transition-colors flex items-center gap-1 shadow-sm ${
+                            hasApplied
+                              ? "bg-emerald-600 hover:bg-emerald-700 text-white"
+                              : "bg-jet hover:bg-black text-white"
+                          }`}
+                        >
+                          <span>{hasApplied ? "Applied" : "Apply"}</span>
+                          <ExternalLink className="w-3.5 h-3.5" />
+                        </a>
                       </div>
                     </div>
-
-                    <a
-                      href={pet.shelter.applicationUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="px-3 py-1.5 rounded-xl bg-jet text-white text-xs font-extrabold shrink-0 hover:bg-black transition-colors flex items-center gap-1 shadow-sm"
-                    >
-                      <span>Apply</span>
-                      <ExternalLink className="w-3.5 h-3.5" />
-                    </a>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             ) : (
               <div className="py-8 text-center text-slate-400 space-y-1">

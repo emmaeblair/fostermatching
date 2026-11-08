@@ -3,6 +3,7 @@
 import { usePetDeck } from "@/hooks/usePetDeck";
 import { DesktopFlow } from "@/components/desktop/DesktopFlow";
 import { MobileFlow } from "@/components/mobile/MobileFlow";
+import { PetProfileModal } from "@/components/PetProfileModal";
 
 export default function MatchingPage() {
   const deck = usePetDeck();
@@ -21,6 +22,8 @@ export default function MatchingPage() {
           onSave={deck.handleSave}
           onRestart={deck.handleRestart}
           toastMessage={deck.toastMessage}
+          onViewProfile={deck.openProfile}
+          isApplied={deck.isApplied}
         />
       </div>
 
@@ -36,8 +39,22 @@ export default function MatchingPage() {
           onSave={deck.handleSave}
           onRestart={deck.handleRestart}
           toastMessage={deck.toastMessage}
+          onViewProfile={deck.openProfile}
+          isApplied={deck.isApplied}
         />
       </div>
+
+      {/* Specific Pet Profile / Detail View Modal */}
+      {deck.inspectingPet && (
+        <PetProfileModal
+          pet={deck.inspectingPet}
+          isApplied={deck.isApplied(deck.inspectingPet.id)}
+          isSaved={deck.isSaved(deck.inspectingPet.id)}
+          onToggleApplied={() => deck.toggleApplied(deck.inspectingPet!.id)}
+          onToggleSave={() => deck.toggleSavePet(deck.inspectingPet!)}
+          onClose={deck.closeProfile}
+        />
+      )}
     </>
   );
 }

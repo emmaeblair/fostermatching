@@ -6,12 +6,13 @@ import { ChevronLeft, ChevronRight, Heart, X, MapPin, Sparkles } from "lucide-re
 
 interface PetCardProps {
   pet: Pet;
+  isApplied?: boolean;
   onPass: () => void;
   onSave: () => void;
   onViewProfile?: () => void;
 }
 
-export function PetCard({ pet, onPass, onSave, onViewProfile }: PetCardProps) {
+export function PetCard({ pet, isApplied, onPass, onSave, onViewProfile }: PetCardProps) {
   const [photoIndex, setPhotoIndex] = useState(0);
 
   // Reset to first photo whenever a new pet card loads
@@ -74,29 +75,42 @@ export function PetCard({ pet, onPass, onSave, onViewProfile }: PetCardProps) {
             ))}
           </div>
 
-          {/* Match Score Star Badge */}
-          {pet.matchScore && (
-            <div className="absolute bottom-2.5 left-2.5 bg-marigold text-jet font-extrabold text-xs px-3 py-1 rounded-full shadow-md flex items-center gap-1">
-              <Sparkles className="w-3.5 h-3.5" />
-              <span>{pet.matchScore}% Match</span>
-            </div>
-          )}
+          {/* Match Score Star Badge & Applied Status */}
+          <div className="absolute bottom-2.5 left-2.5 flex items-center gap-1.5 z-10">
+            {pet.matchScore && (
+              <div className="bg-marigold text-jet font-extrabold text-xs px-3 py-1 rounded-full shadow-md flex items-center gap-1">
+                <Sparkles className="w-3.5 h-3.5" />
+                <span>{pet.matchScore}% Match</span>
+              </div>
+            )}
+            {isApplied && (
+              <div className="bg-jet text-white font-extrabold text-xs px-2.5 py-1 rounded-full shadow-md flex items-center gap-1 border border-white/20">
+                <span>✓ Applied</span>
+              </div>
+            )}
+          </div>
 
           {/* Tap Arrows to cycle photos without gesture clashes */}
           {pet.photos.length > 1 && (
             <>
               <button
                 type="button"
-                onClick={prevPhoto}
-                className="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/40 hover:bg-black/70 text-white flex items-center justify-center backdrop-blur-sm transition-all"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  prevPhoto();
+                }}
+                className="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/40 hover:bg-black/70 text-white flex items-center justify-center backdrop-blur-sm transition-all z-10"
                 aria-label="Previous photo"
               >
                 <ChevronLeft className="w-5 h-5" />
               </button>
               <button
                 type="button"
-                onClick={nextPhoto}
-                className="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/40 hover:bg-black/70 text-white flex items-center justify-center backdrop-blur-sm transition-all"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  nextPhoto();
+                }}
+                className="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/40 hover:bg-black/70 text-white flex items-center justify-center backdrop-blur-sm transition-all z-10"
                 aria-label="Next photo"
               >
                 <ChevronRight className="w-5 h-5" />

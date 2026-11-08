@@ -15,6 +15,8 @@ interface MobileFlowProps {
   onSave: () => void;
   onRestart: () => void;
   toastMessage: string | null;
+  onViewProfile: (pet: Pet) => void;
+  isApplied: (petId: string) => boolean;
 }
 
 export function MobileFlow({
@@ -27,6 +29,8 @@ export function MobileFlow({
   onSave,
   onRestart,
   toastMessage,
+  onViewProfile,
+  isApplied,
 }: MobileFlowProps) {
   return (
     <main className="min-h-screen px-4 py-5 flex flex-col justify-between max-w-sm mx-auto">
@@ -84,9 +88,10 @@ export function MobileFlow({
         {!isDeckEmpty && activePet ? (
           <PetCard
             pet={activePet}
+            isApplied={isApplied(activePet.id)}
             onPass={onPass}
             onSave={onSave}
-            onViewProfile={() => window.open(activePet.shelter.applicationUrl, "_blank")}
+            onViewProfile={() => onViewProfile(activePet)}
           />
         ) : (
           <div className="bg-white rounded-[28px] p-6 text-center shadow-lg border border-slate-100 space-y-4 my-auto">
@@ -113,7 +118,11 @@ export function MobileFlow({
 
       {/* Bottom Session Tray */}
       <footer className="pt-3">
-        <SessionTray savedPets={savedPets} />
+        <SessionTray 
+          savedPets={savedPets} 
+          isApplied={isApplied}
+          onSelectPet={onViewProfile}
+        />
       </footer>
     </main>
   );

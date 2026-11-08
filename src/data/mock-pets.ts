@@ -40,6 +40,14 @@ export const MOCK_PETS: Pet[] = [
       { badgeText: "✓ Cat Friendly", type: "green_flag" },
       { badgeText: "⚡ Decoded: Needs to be only dog", type: "good_to_know" }
     ],
+    bio: "Barnaby is a gentle, soulful terrier mix who spent several months in rural care before joining his foster home in Seattle. He is house-trained, knows 'sit' and 'paw', and loves quiet routines.",
+    fosterQuote: "Barnaby is an absolute dream if you work from home. He curls into a donut by your desk and doesn't make a peep. On walks he will ignore squirrels, but he gets defensive if unknown dogs rush into his face—so he will thrive best as the sole prince of your castle!",
+    health: {
+      spayedNeutered: true,
+      vaccinated: true,
+      microchipped: true,
+      specialNeeds: "None — fully healthy & active"
+    },
     shelter: {
       name: "Seattle Humane Society",
       city: "Bellevue",
@@ -81,6 +89,13 @@ export const MOCK_PETS: Pet[] = [
       { badgeText: "✓ High Energy / Hiker", type: "green_flag" },
       { badgeText: "⚡ Decoded: Needs fenced yard", type: "good_to_know" }
     ],
+    bio: "Luna is an energetic, whip-smart Aussie mix with boundless joy and a soft spot for agility games. She loves having a job to do and learns new tricks in minutes.",
+    fosterQuote: "Luna will be your best friend if you love running, trail hiking, or agility training! She has great dog manners and plays gently with kids, but her herding instinct means she will try to herd cats, so a feline-free home with a secure yard is ideal.",
+    health: {
+      spayedNeutered: true,
+      vaccinated: true,
+      microchipped: true
+    },
     shelter: {
       name: "Northwest Dog Project",
       city: "Seattle",
@@ -122,6 +137,13 @@ export const MOCK_PETS: Pet[] = [
       { badgeText: "✓ Quiet / Low Noise", type: "green_flag" },
       { badgeText: "⚡ Dogs: Unknown (ask rescue)", type: "good_to_know" }
     ],
+    bio: "Mochi was surrendered when her elderly owner moved into assisted living. She is calm, affectionate, and happiest when napping near her humans.",
+    fosterQuote: "Mochi is the easiest roommate on earth. She loves feather wand toys in the evening and purrs loudly the second you scratch her cheek. She gets along beautifully with other gentle cats and respects your furniture.",
+    health: {
+      spayedNeutered: true,
+      vaccinated: true,
+      microchipped: true
+    },
     shelter: {
       name: "Seattle Area Feline Rescue",
       city: "Shoreline",

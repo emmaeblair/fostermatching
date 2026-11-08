@@ -19,6 +19,13 @@ export interface DecodedNote {
   type: 'green_flag' | 'good_to_know';
 }
 
+export interface HealthVitals {
+  spayedNeutered: boolean;
+  vaccinated: boolean;
+  microchipped: boolean;
+  specialNeeds?: string;
+}
+
 export interface Pet {
   id: string;
   name: string;
@@ -41,4 +48,7 @@ export interface Pet {
     applicationUrl: string;
   };
   matchScore?: number;
+  bio?: string;
+  fosterQuote?: string;
+  health?: HealthVitals;
 }
