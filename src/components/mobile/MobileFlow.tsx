@@ -33,14 +33,14 @@ export function MobileFlow({
   isApplied,
 }: MobileFlowProps) {
   return (
-    <main className="min-h-screen px-4 py-4 flex flex-col justify-between max-w-sm mx-auto bg-coral selection:bg-sun selection:text-cocoa">
+    <main className="min-h-screen px-4 py-4 flex flex-col justify-between max-w-sm mx-auto bg-terracotta selection:bg-sun selection:text-cocoa">
       {/* Top Mobile Bar */}
       <header className="flex items-center justify-between pb-2">
         <div className="flex items-center gap-2">
-          <div className="w-8 h-8 rounded-xl bg-sun text-cocoa flex items-center justify-center text-sm shadow-md border border-white/30">
+          <div className="w-8 h-8 rounded-xl bg-sun text-cocoa flex items-center justify-center text-sm shadow-md border border-white/40 font-bold">
             🐾
           </div>
-          <h1 className="font-extrabold text-base tracking-tight text-custard">
+          <h1 className="font-extrabold text-base tracking-tight text-cocoa">
             AdoptionMatch
           </h1>
         </div>

@@ -12,7 +12,12 @@ export default {
         sans: ["var(--font-plus-jakarta)", "-apple-system", "BlinkMacSystemFont", "sans-serif"],
       },
       colors: {
-        // Electric Retro Pop Design Tokens
+        // Sunbaked Terracotta & Retro Pop Design Tokens
+        terracotta: {
+          light: "#F2B2A2",
+          DEFAULT: "#EA9B85",
+          dark: "#D6816A",
+        },
         coral: {
           light: "#EA684D",
           DEFAULT: "#DF4E30",
@@ -38,7 +43,7 @@ export default {
           DEFAULT: "#1D130E",
           muted: "#6B4D3D",
         },
-        // Legacy token fallbacks for seamless component compatibility
+        // Legacy token fallbacks
         jet: {
           DEFAULT: "#1D130E",
           soft: "#2C1E17",

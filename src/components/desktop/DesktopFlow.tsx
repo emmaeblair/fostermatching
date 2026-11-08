@@ -88,23 +88,23 @@ export function DesktopFlow({
     lifestyleFilters.dogFriendlyOnly;
 
   return (
-    <div className="min-h-screen bg-coral px-8 py-7 flex flex-col justify-between max-w-6xl mx-auto selection:bg-sun selection:text-cocoa">
+    <div className="min-h-screen bg-terracotta px-8 py-7 flex flex-col justify-between max-w-6xl mx-auto selection:bg-sun selection:text-cocoa">
       {/* Top Desktop Navigation */}
-      <header className="flex items-center justify-between pb-5 border-b border-white/20">
+      <header className="flex items-center justify-between pb-5 border-b border-cocoa/15">
         <div className="flex items-center gap-3">
-          <div className="w-11 h-11 rounded-2xl bg-sun text-cocoa flex items-center justify-center text-xl shadow-md border border-white/30">
+          <div className="w-11 h-11 rounded-2xl bg-sun text-cocoa flex items-center justify-center text-xl shadow-md border border-white/40">
             🐾
           </div>
           <div>
             <div className="flex items-center gap-2">
-              <h1 className="font-extrabold text-2xl tracking-tight text-custard">
+              <h1 className="font-extrabold text-2xl tracking-tight text-cocoa">
                 AdoptionMatch
               </h1>
-              <span className="text-xs font-extrabold px-2.5 py-0.5 rounded-full bg-sun text-cocoa shadow-sm">
-                Electric Retro Pop
+              <span className="text-xs font-extrabold px-2.5 py-0.5 rounded-full bg-sun text-cocoa shadow-xs border border-cocoa/10">
+                Sunbaked Terracotta
               </span>
             </div>
-            <p className="text-xs font-bold text-custard/80">
+            <p className="text-xs font-bold text-cocoa/80">
               Find the companion who fits the rhythm of your day.
             </p>
           </div>
@@ -117,7 +117,7 @@ export function DesktopFlow({
             className={`px-4 py-1.5 rounded-full text-xs font-extrabold transition-all ${
               selectedSpecies === "all"
                 ? "bg-cobalt text-white shadow-sm"
-                : "text-cocoa hover:text-coral"
+                : "text-cocoa hover:text-cobalt"
             }`}
           >
             All Pets
@@ -127,7 +127,7 @@ export function DesktopFlow({
             className={`px-4 py-1.5 rounded-full text-xs font-extrabold transition-all ${
               selectedSpecies === "dog"
                 ? "bg-cobalt text-white shadow-sm"
-                : "text-cocoa hover:text-coral"
+                : "text-cocoa hover:text-cobalt"
             }`}
           >
             🐶 Dogs
@@ -137,7 +137,7 @@ export function DesktopFlow({
             className={`px-4 py-1.5 rounded-full text-xs font-extrabold transition-all ${
               selectedSpecies === "cat"
                 ? "bg-cobalt text-white shadow-sm"
-                : "text-cocoa hover:text-coral"
+                : "text-cocoa hover:text-cobalt"
             }`}
           >
             🐱 Cats
@@ -146,7 +146,7 @@ export function DesktopFlow({
 
         {/* Right Location Badge */}
         <div className="flex items-center gap-2 text-xs font-extrabold px-4 py-1.5 rounded-full bg-custard text-cocoa shadow-md border border-cocoa/15">
-          <MapPin className="w-4 h-4 text-coral" />
+          <MapPin className="w-4 h-4 text-cobalt" />
           <span>Seattle, WA • 25 mi</span>
         </div>
       </header>
@@ -155,7 +155,7 @@ export function DesktopFlow({
       <div className="h-7 flex items-center justify-center my-1">
         {toastMessage && (
           <div className="text-xs font-extrabold px-4 py-1.5 rounded-full bg-custard text-cocoa shadow-lg animate-fade-in flex items-center gap-2 border border-cocoa/20">
-            <Sparkles className="w-3.5 h-3.5 text-coral fill-coral" />
+            <Sparkles className="w-3.5 h-3.5 text-sun fill-sun" />
             <span>{toastMessage}</span>
           </div>
         )}
@@ -177,10 +177,10 @@ export function DesktopFlow({
               />
 
               {/* Keyboard Navigation Tip */}
-              <div className="flex items-center gap-2 text-xs font-bold text-custard/80 mt-0.5">
-                <Keyboard className="w-3.5 h-3.5 text-custard" />
+              <div className="flex items-center gap-2 text-xs font-bold text-cocoa/85 mt-0.5">
+                <Keyboard className="w-3.5 h-3.5 text-cocoa" />
                 <span className="flex items-center gap-1">
-                  Use <kbd className="px-1.5 py-0.5 rounded bg-white/20 text-white font-mono shadow-xs">←</kbd> <kbd className="px-1.5 py-0.5 rounded bg-white/20 text-white font-mono shadow-xs">→</kbd> for photos • click card for full profile
+                  Use <kbd className="px-1.5 py-0.5 rounded bg-custard text-cocoa font-mono shadow-xs border border-cocoa/20">←</kbd> <kbd className="px-1.5 py-0.5 rounded bg-custard text-cocoa font-mono shadow-xs border border-cocoa/20">→</kbd> for photos • click card for full profile
                 </span>
               </div>
             </div>
@@ -234,7 +234,7 @@ export function DesktopFlow({
                 <button
                   type="button"
                   onClick={onResetFilters}
-                  className="text-xs font-extrabold text-coral hover:underline"
+                  className="text-xs font-extrabold text-cobalt hover:underline"
                 >
                   Reset All
                 </button>
@@ -284,7 +284,7 @@ export function DesktopFlow({
           <div className="bg-custard rounded-[28px] p-5 shadow-2xl border border-cocoa/15 text-cocoa space-y-3.5">
             <div className="flex items-center justify-between pb-3 border-b border-cocoa/10">
               <div className="flex items-center gap-2">
-                <Heart className="w-4 h-4 text-coral fill-coral" />
+                <Heart className="w-4 h-4 text-sun fill-sun" />
                 <h2 className="font-extrabold text-sm tracking-tight">
                   Your Saved Pack ({savedPets.length})
                 </h2>
@@ -329,7 +329,7 @@ export function DesktopFlow({
                           <p className="text-xs text-cocoa-muted font-medium truncate">
                             {pet.breed}
                           </p>
-                          <span className="text-xs font-bold text-coral">
+                          <span className="text-xs font-bold text-cobalt">
                             ★ {pet.matchScore}% Match
                           </span>
                         </div>
@@ -370,7 +370,7 @@ export function DesktopFlow({
                 <div className="w-6 h-6 rounded-full bg-sun flex items-center justify-center text-cocoa shadow-xs">
                   <HelpCircle className="w-3.5 h-3.5" />
                 </div>
-                <h3 className="font-extrabold text-xs text-coral uppercase tracking-wider">
+                <h3 className="font-extrabold text-xs text-cobalt uppercase tracking-wider">
                   Shelter-Speak Decoder: &ldquo;{currentTip.term}&rdquo;
                 </h3>
               </div>
@@ -403,9 +403,9 @@ export function DesktopFlow({
       </main>
 
       {/* Footer */}
-      <footer className="pt-5 border-t border-white/20 flex items-center justify-between text-xs font-bold text-custard/80">
+      <footer className="pt-5 border-t border-cocoa/15 flex items-center justify-between text-xs font-bold text-cocoa/80">
         <span>Rescue inventory sourced from public rescue syndication (RescueGroups.org v5 format)</span>
-        <span className="font-extrabold text-custard">AdoptionMatch • Electric Retro Pop</span>
+        <span className="font-extrabold text-cocoa">AdoptionMatch • Sunbaked Terracotta</span>
       </footer>
     </div>
   );

@@ -11,7 +11,7 @@ interface SessionTrayProps {
 export function SessionTray({ savedPets, isApplied, onSelectPet }: SessionTrayProps) {
   if (savedPets.length === 0) {
     return (
-      <div className="w-full max-w-sm mx-auto pt-3 border-t border-white/20 flex items-center justify-between text-xs font-bold text-custard/80">
+      <div className="w-full max-w-sm mx-auto pt-3 border-t border-cocoa/15 flex items-center justify-between text-xs font-bold text-cocoa/80">
         <span>No saved pets yet</span>
         <span>Click Save & Match ♥</span>
       </div>
@@ -19,7 +19,7 @@ export function SessionTray({ savedPets, isApplied, onSelectPet }: SessionTrayPr
   }
 
   return (
-    <div className="w-full max-w-sm mx-auto pt-3 border-t border-white/20 flex items-center justify-between text-custard">
+    <div className="w-full max-w-sm mx-auto pt-3 border-t border-cocoa/15 flex items-center justify-between text-cocoa">
       <div className="flex items-center gap-2">
         <span className="text-xs font-extrabold uppercase tracking-wider">
           Saved Pack ({savedPets.length}):
@@ -41,7 +41,7 @@ export function SessionTray({ savedPets, isApplied, onSelectPet }: SessionTrayPr
                   src={pet.photos[0]}
                   alt={pet.name}
                   className={`inline-block w-8 h-8 rounded-full ring-2 object-cover shadow-sm ${
-                    hasApplied ? "ring-emerald-400" : "ring-white"
+                    hasApplied ? "ring-emerald-500" : "ring-custard"
                   }`}
                 />
                 {hasApplied && (
@@ -53,7 +53,7 @@ export function SessionTray({ savedPets, isApplied, onSelectPet }: SessionTrayPr
         </div>
       </div>
 
-      <span className="text-xs font-bold text-custard/80">
+      <span className="text-xs font-bold text-cocoa/80">
         Tap avatar to view
       </span>
     </div>
