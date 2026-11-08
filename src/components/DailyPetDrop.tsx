@@ -3,6 +3,7 @@
 import { useState, useMemo, useEffect, useCallback, useRef } from "react";
 import { Pet, Species } from "@/types/pet";
 import { MOCK_PETS } from "@/data/mock-pets";
+import { DogPawShape } from "@/components/DogPawShape";
 import { 
   Sparkles, 
   Heart, 
@@ -308,7 +309,11 @@ export function DailyPetDrop({
                 <div className="absolute bottom-2 w-full h-44 rounded-[26px] border-2 border-dashed border-candy/30 bg-white/30 -z-10 flex flex-col items-center justify-center gap-1.5">
                   {phase === "waiting" && (
                     <>
-                      <span className="text-xl opacity-35">{isDog ? "🐶" : "🐱"}</span>
+                      {isDog ? (
+                        <DogPawShape className="w-10 h-10 text-mango/40" />
+                      ) : (
+                        <span className="text-2xl opacity-35">🐱</span>
+                      )}
                       <span className="text-xs font-extrabold text-cocoa/40 animate-pulse">
                         Target #{idx + 1}
                       </span>
@@ -322,19 +327,16 @@ export function DailyPetDrop({
                 {/* PHASE 1 & 2: Falling, hitting bottom floor & bouncing UP to spot (Before Pop) */}
                 {phase === "falling" && (
                   <div className="animate-physical-drop w-full flex flex-col items-center select-none py-2 z-20">
-                    {/* Dog Object: Mango Gold bouncing capsule with floppy puppy ears */}
+                    {/* Dog Object: Exact Paw Print shape matching user upload! */}
                     {isDog ? (
-                      <div className="relative flex flex-col items-center">
-                        {/* Floppy Dog Ears */}
-                        <div className="absolute -top-3.5 -left-2.5 w-5 h-9 bg-amber-800 rounded-full rotate-[-28deg] shadow-md border-2 border-white" />
-                        <div className="absolute -top-3.5 -right-2.5 w-5 h-9 bg-amber-800 rounded-full rotate-[28deg] shadow-md border-2 border-white" />
-
-                        {/* Dog Capsule Body */}
-                        <div className="w-24 h-24 rounded-full bg-gradient-to-b from-amber-300 via-mango to-amber-600 border-4 border-white shadow-2xl flex flex-col items-center justify-center text-center p-1.5">
-                          <span className="text-3xl drop-shadow">🐶</span>
-                          <span className="text-xs font-extrabold text-white bg-amber-900/90 px-2.5 py-0.5 rounded-full mt-0.5 shadow-xs">
-                            Top Dog
-                          </span>
+                      <div className="relative flex flex-col items-center group">
+                        <div className="relative filter drop-shadow-2xl flex flex-col items-center justify-center">
+                          <DogPawShape className="w-24 h-24 sm:w-26 sm:h-26 text-mango filter drop-shadow-lg" />
+                          <div className="absolute inset-0 flex items-center justify-center pt-5 pointer-events-none">
+                            <span className="text-xs font-extrabold text-white bg-cocoa/85 px-2.5 py-0.5 rounded-full shadow-xs border border-white/50">
+                              Top Dog
+                            </span>
+                          </div>
                         </div>
                       </div>
                     ) : (
