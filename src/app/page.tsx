@@ -18,6 +18,11 @@ export default function MatchingPage() {
           savedPets={deck.savedPets}
           selectedSpecies={deck.selectedSpecies}
           onSelectSpecies={deck.setSelectedSpecies}
+          lifestyleFilters={deck.lifestyleFilters}
+          onToggleLifestyleFilter={deck.toggleLifestyleFilter}
+          onResetFilters={deck.resetAllFilters}
+          totalCount={deck.totalCount}
+          currentIndex={deck.currentIndex}
           onPass={deck.handlePass}
           onSave={deck.handleSave}
           onRestart={deck.handleRestart}

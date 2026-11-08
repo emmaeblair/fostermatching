@@ -1,21 +1,43 @@
 "use client";
 
-import { useState, useCallback, useEffect } from "react";
+import { useState, useCallback } from "react";
 import { MOCK_PETS } from "@/data/mock-pets";
 import { Pet, Species } from "@/types/pet";
 
+export interface LifestyleFilterState {
+  apartmentOnly: boolean;
+  catFriendlyOnly: boolean;
+  dogFriendlyOnly: boolean;
+}
+
 export function usePetDeck() {
   const [selectedSpecies, setSelectedSpecies] = useState<Species | "all">("all");
+  const [lifestyleFilters, setLifestyleFilters] = useState<LifestyleFilterState>({
+    apartmentOnly: false,
+    catFriendlyOnly: false,
+    dogFriendlyOnly: false,
+  });
   const [currentIndex, setCurrentIndex] = useState(0);
   const [savedPets, setSavedPets] = useState<Pet[]>([]);
   const [appliedPetIds, setAppliedPetIds] = useState<string[]>([]);
   const [inspectingPet, setInspectingPet] = useState<Pet | null>(null);
   const [toastMessage, setToastMessage] = useState<string | null>(null);
 
-  // Filter available pets based on selected species
+  // Filter available pets based on selected species & lifestyle toggles
   const filteredPets = MOCK_PETS.filter((pet) => {
-    if (selectedSpecies === "all") return true;
-    return pet.species === selectedSpecies;
+    if (selectedSpecies !== "all" && pet.species !== selectedSpecies) {
+      return false;
+    }
+    if (lifestyleFilters.apartmentOnly && !pet.compatibility.apartmentFriendly) {
+      return false;
+    }
+    if (lifestyleFilters.catFriendlyOnly && pet.compatibility.goodWithCats !== true) {
+      return false;
+    }
+    if (lifestyleFilters.dogFriendlyOnly && pet.compatibility.goodWithDogs !== true) {
+      return false;
+    }
+    return true;
   });
 
   const activePet = filteredPets[currentIndex];
@@ -77,6 +99,24 @@ export function usePetDeck() {
     return appliedPetIds.includes(petId);
   }, [appliedPetIds]);
 
+  const toggleLifestyleFilter = useCallback((key: keyof LifestyleFilterState) => {
+    setLifestyleFilters((prev) => ({
+      ...prev,
+      [key]: !prev[key],
+    }));
+    setCurrentIndex(0);
+  }, []);
+
+  const resetAllFilters = useCallback(() => {
+    setSelectedSpecies("all");
+    setLifestyleFilters({
+      apartmentOnly: false,
+      catFriendlyOnly: false,
+      dogFriendlyOnly: false,
+    });
+    setCurrentIndex(0);
+  }, []);
+
   const openProfile = useCallback((pet: Pet) => {
     setInspectingPet(pet);
   }, []);
@@ -95,12 +135,17 @@ export function usePetDeck() {
       setSelectedSpecies(species);
       setCurrentIndex(0); // Reset index on filter change
     },
+    lifestyleFilters,
+    toggleLifestyleFilter,
+    resetAllFilters,
     activePet,
     isDeckEmpty,
     savedPets,
     appliedPetIds,
     inspectingPet,
     toastMessage,
+    totalCount: filteredPets.length,
+    currentIndex,
     isSaved,
     isApplied,
     toggleSavePet,

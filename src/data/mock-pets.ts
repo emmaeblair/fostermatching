@@ -150,5 +150,101 @@ export const MOCK_PETS: Pet[] = [
       state: "WA",
       applicationUrl: "https://www.seattleareafelinerescue.org"
     }
+  },
+  {
+    id: "pet-4",
+    name: "Oliver",
+    species: "dog",
+    breed: "Golden Retriever Mix",
+    age: "4 yrs",
+    gender: "Male",
+    size: "Large",
+    weightLbs: 58,
+    distanceMiles: 4.5,
+    photos: [
+      "https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1537151625747-768eb6cf92b2?auto=format&fit=crop&w=800&q=80"
+    ],
+    vibeTag: "Goofy Snuggler 🎾",
+    matchScore: 95,
+    prompts: [
+      {
+        question: "Don't hate me if I...",
+        answer: "Lean my entire 58-pound body against your shins while you brew your morning coffee."
+      }
+    ],
+    compatibility: {
+      goodWithCats: true,
+      goodWithDogs: true,
+      goodWithKids: true,
+      apartmentFriendly: false,
+      energyLevel: "Mid"
+    },
+    decodedNotes: [
+      { badgeText: "✓ Great with Kids & Dogs", type: "green_flag" },
+      { badgeText: "✓ Leash Trained", type: "green_flag" },
+      { badgeText: "⚡ Needs Yard for Zoomies", type: "good_to_know" }
+    ],
+    bio: "Oliver is the ultimate happy-go-lucky companion. He loves car rides, tennis balls, and resting his chin on your knee.",
+    fosterQuote: "Oliver is pure golden sunshine. He greets everyone like a long-lost friend and loves kids. He does get occasional backyard zoomies, so a small yard or nearby park is ideal!",
+    health: {
+      spayedNeutered: true,
+      vaccinated: true,
+      microchipped: true
+    },
+    shelter: {
+      name: "Homeward Pet Adoption",
+      city: "Woodinville",
+      state: "WA",
+      applicationUrl: "https://www.homewardpet.org"
+    }
+  },
+  {
+    id: "pet-5",
+    name: "Cleo",
+    species: "cat",
+    breed: "Calico Short Hair",
+    age: "1 yr",
+    gender: "Female",
+    size: "Small",
+    weightLbs: 7,
+    distanceMiles: 1.9,
+    photos: [
+      "https://images.unsplash.com/photo-1573865526739-10659fec78a5?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=800&q=80"
+    ],
+    vibeTag: "Curious Explorer 🧶",
+    matchScore: 91,
+    prompts: [
+      {
+        question: "I'll know we click when...",
+        answer: "You watch bird videos on YouTube with me and don't judge my chirping noises."
+      }
+    ],
+    compatibility: {
+      goodWithCats: true,
+      goodWithDogs: true,
+      goodWithKids: true,
+      apartmentFriendly: true,
+      energyLevel: "Mid"
+    },
+    decodedNotes: [
+      { badgeText: "✓ Apartment Friendly", type: "green_flag" },
+      { badgeText: "✓ Dog Friendly (Calm)", type: "green_flag" },
+      { badgeText: "⚡ Chirpy & Talkative", type: "good_to_know" }
+    ],
+    bio: "Cleo is an inquisitive, spunky young calico who loves wand toys and greeting you at the front door.",
+    fosterQuote: "Cleo has the biggest personality in a 7-pound body! She loves sleeping at the foot of your bed and will make soft chirping sounds when she wants her breakfast.",
+    health: {
+      spayedNeutered: true,
+      vaccinated: true,
+      microchipped: true
+    },
+    shelter: {
+      name: "Seattle Humane Society",
+      city: "Bellevue",
+      state: "WA",
+      applicationUrl: "https://www.seattlehumane.org/adoption"
+    }
   }
 ];

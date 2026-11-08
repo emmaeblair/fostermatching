@@ -32,7 +32,7 @@ rounded:
   md: "12px"
   lg: "16px"
   xl: "20px"
-  2xl: "28px"
+  2xl: "32px"
   full: "9999px"
 spacing:
   xs: "4px"
@@ -46,16 +46,16 @@ components:
     backgroundColor: "{colors.neutral-jet}"
     textColor: "{colors.neutral-white}"
     rounded: "{rounded.full}"
-    padding: "12px 20px"
+    padding: "14px 22px"
   button-secondary:
     backgroundColor: "{colors.neutral-white}"
     textColor: "{colors.neutral-jet}"
     rounded: "{rounded.full}"
-    padding: "12px 20px"
+    padding: "14px 20px"
   card-hero:
-    backgroundColor: "{colors.primary}"
+    backgroundColor: "{colors.neutral-white}"
     rounded: "{rounded.2xl}"
-    padding: "12px"
+    padding: "14px"
   prompt-container:
     backgroundColor: "{colors.surface-custard}"
     textColor: "{colors.neutral-jet}"
@@ -142,39 +142,39 @@ Tactile and grounded. The system relies on **tonal surface layering** rather tha
 
 ## Shapes
 
-- **Hero Squircle Geometry**: Cards and major dashboard panels use generous `28px` corner radii (`rounded-[28px]`).
-- **Prompt Containers**: Secondary nested containers use `20px` corner radii (`rounded-[20px]`).
+- **Hero Squircle Geometry**: Cards and major dashboard panels use generous `28px` to `32px` corner radii (`rounded-[28px]` / `rounded-[32px]`).
+- **Prompt Containers**: Secondary nested containers use `22px` corner radii (`rounded-[22px]`).
 - **Pill Controls**: All buttons, badges, status chips, and avatar trays use fully rounded pill geometry (`rounded-full`).
 
 ## Components
 
 ### Buttons
 - **Primary Anchor (`button-primary`)**:
-  - **Shape:** Full pill (`rounded-full`, height ~44px).
+  - **Shape:** Full pill (`rounded-full`, height ~46px).
   - **Color:** Jet-Black (`#141416`), text Pure White (`#FFFFFF`).
   - **States:** Hover shifts to `#000000`; active state depresses (`active:scale-95`).
 - **Secondary Pass (`button-secondary`)**:
   - **Shape:** Full pill (`rounded-full`).
-  - **Color:** Pure White (`#FFFFFF`), text Jet-Black (`#141416`), subtle slate shadow.
+  - **Color:** Pure White (`#FFFFFF`), text Jet-Black (`#141416`), subtle slate border and shadow.
 - **Photo Navigation Arrows**:
-  - **Shape:** Circular (`w-8 h-8 rounded-full`).
-  - **Color:** Translucent black backdrop (`bg-black/40` with `backdrop-blur-sm`), white chevron icon.
+  - **Shape:** Circular (`w-9 h-9 rounded-full`).
+  - **Color:** Translucent black backdrop (`bg-black/45` with `backdrop-blur-md`), white chevron icon.
 
 ### Chips & Badges
 - **Match Score Stamp**: Marigold background (`bg-marigold`), Jet-Black text, star icon, full pill shape.
 - **Decoded Trait Pills**:
-  - *Green Flags:* White surface (`bg-white/90`), Jet text.
-  - *Good to Know / Consideration:* Muted marigold wash (`bg-marigold-light/30`), subtle amber border.
+  - *Green Flags:* Light slate / mint surface (`bg-slate-100` or `bg-emerald-50`), Jet text.
+  - *Good to Know / Consideration:* Muted marigold wash (`bg-marigold/15`), subtle amber border.
 
 ### Cards / Containers
 - **PetCard (Hero)**:
-  - **Corner Style:** `rounded-[28px]`.
-  - **Background:** Sky Periwinkle (`#93B1FF`).
-  - **Padding:** `12px` all around.
+  - **Corner Style:** `rounded-[32px]`.
+  - **Background:** Pure White (`#FFFFFF`) with subtle border (`border-slate-200/80`) and shadow (`shadow-xl shadow-indigo-950/5`).
+  - **Padding:** `14px` all around.
 - **PromptContainer (Nested)**:
-  - **Corner Style:** `rounded-[20px]`.
+  - **Corner Style:** `rounded-[22px]`.
   - **Background:** Custard Cream (`#FFF7E8`).
-  - **Padding:** `12px`.
+  - **Padding:** `16px`.
 
 ### Signature Component: The Session Bubble Tray
 - A horizontal shelf displaying saved pet avatars. Circular `32px` photo bubbles with a white border ring overlap slightly (`-space-x-2`), growing in real-time as adopters swipe right.
