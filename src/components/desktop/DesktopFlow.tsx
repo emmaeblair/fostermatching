@@ -120,7 +120,7 @@ export function DesktopFlow({
               />
 
               {/* Keyboard Navigation Tip for Desktop Users */}
-              <div className="flex items-center gap-2 text-[11px] font-bold text-slate-400 mt-1">
+              <div className="flex items-center gap-2 text-xs font-bold text-slate-400 mt-1">
                 <Keyboard className="w-3.5 h-3.5 text-slate-400" />
                 <span className="flex items-center gap-1">
                   Use <kbd className="px-1.5 py-0.5 rounded bg-white border border-slate-300 text-slate-700 shadow-sm">←</kbd> <kbd className="px-1.5 py-0.5 rounded bg-white border border-slate-300 text-slate-700 shadow-sm">→</kbd> keys to flip through photos
@@ -162,7 +162,7 @@ export function DesktopFlow({
                   Your Saved Pack ({savedPets.length})
                 </h2>
               </div>
-              <span className="text-[11px] font-semibold text-slate-400">
+              <span className="text-xs font-semibold text-slate-400">
                 Ready to apply when you are
               </span>
             </div>
@@ -184,10 +184,10 @@ export function DesktopFlow({
                         <h3 className="font-extrabold text-xs text-jet truncate">
                           {pet.name}
                         </h3>
-                        <p className="text-[10px] text-slate-500 font-medium truncate">
+                        <p className="text-xs text-slate-500 font-medium truncate">
                           {pet.breed}
                         </p>
-                        <span className="text-[10px] font-bold text-marigold-dark">
+                        <span className="text-xs font-bold text-marigold-dark">
                           ★ {pet.matchScore}% Match
                         </span>
                       </div>
@@ -197,10 +197,10 @@ export function DesktopFlow({
                       href={pet.shelter.applicationUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="px-2.5 py-1.5 rounded-xl bg-jet text-white text-[10px] font-extrabold shrink-0 hover:bg-black transition-colors flex items-center gap-1 shadow-sm"
+                      className="px-3 py-1.5 rounded-xl bg-jet text-white text-xs font-extrabold shrink-0 hover:bg-black transition-colors flex items-center gap-1 shadow-sm"
                     >
                       <span>Apply</span>
-                      <ExternalLink className="w-3 h-3" />
+                      <ExternalLink className="w-3.5 h-3.5" />
                     </a>
                   </div>
                 ))}
@@ -208,7 +208,7 @@ export function DesktopFlow({
             ) : (
               <div className="py-8 text-center text-slate-400 space-y-1">
                 <p className="text-xs font-semibold">Your pack is currently empty</p>
-                <p className="text-[11px]">Swipe right or click Save to shortlist companions here!</p>
+                <p className="text-xs">Swipe right or click Save to shortlist companions here!</p>
               </div>
             )}
           </div>
@@ -220,20 +220,20 @@ export function DesktopFlow({
                 <SlidersHorizontal className="w-4 h-4 text-slate-600" />
                 <h2 className="font-extrabold text-sm text-jet">Search Filters</h2>
               </div>
-              <span className="text-[11px] font-bold text-marigold-dark">Reset</span>
+              <span className="text-xs font-bold text-marigold-dark">Reset</span>
             </div>
 
             <div className="grid grid-cols-3 gap-2.5 pt-1 text-xs">
               <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-100 flex flex-col justify-between">
-                <span className="text-[10px] uppercase font-bold text-slate-400">Distance</span>
+                <span className="text-xs uppercase font-bold text-slate-400">Distance</span>
                 <span className="font-extrabold text-jet">Within 25 miles</span>
               </div>
               <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-100 flex flex-col justify-between">
-                <span className="text-[10px] uppercase font-bold text-slate-400">Living Space</span>
+                <span className="text-xs uppercase font-bold text-slate-400">Living Space</span>
                 <span className="font-extrabold text-jet">Apartment OK</span>
               </div>
               <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-100 flex flex-col justify-between">
-                <span className="text-[10px] uppercase font-bold text-slate-400">Energy Vibe</span>
+                <span className="text-xs uppercase font-bold text-slate-400">Energy Vibe</span>
                 <span className="font-extrabold text-jet">Low to Medium</span>
               </div>
             </div>
@@ -245,10 +245,10 @@ export function DesktopFlow({
               <HelpCircle className="w-4 h-4" />
             </div>
             <div className="space-y-0.5">
-              <h3 className="font-extrabold text-xs text-jet">
+              <h3 className="font-extrabold text-xs text-jet text-balance">
                 Shelter-Speak Decoder: &ldquo;Needs patient decompression&rdquo;
               </h3>
-              <p className="text-[11px] text-slate-600 leading-relaxed font-medium">
+              <p className="text-xs text-slate-600 leading-relaxed font-medium text-pretty">
                 Rescues use this for dogs who are shy in shelters. Remember the <strong>3-3-3 rule</strong>: 3 days to decompress, 3 weeks to learn your routine, and 3 months to feel fully at home!
               </p>
             </div>

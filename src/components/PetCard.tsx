@@ -108,26 +108,26 @@ export function PetCard({ pet, onPass, onSave, onViewProfile }: PetCardProps) {
         {/* Pet Name, Age & Quick Tag */}
         <div className="flex items-baseline justify-between px-1">
           <div>
-            <h2 className="text-xl font-bold tracking-tight text-jet">
-              {pet.name}, <span className="font-semibold">{pet.age}</span>
+            <h2 className="text-xl font-extrabold tracking-tight text-jet text-balance">
+              {pet.name}, <span className="font-semibold text-lg">{pet.age}</span>
             </h2>
             <p className="text-xs font-semibold text-jet/80 flex items-center gap-1 mt-0.5">
               <MapPin className="w-3.5 h-3.5" />
               <span>{pet.breed} • {pet.distanceMiles} mi away</span>
             </p>
           </div>
-          <span className="text-[11px] font-extrabold px-3 py-1 rounded-full bg-custard text-marigold-dark shadow-sm">
+          <span className="text-xs font-extrabold px-3 py-1 rounded-full bg-custard text-marigold-dark shadow-sm">
             {pet.vibeTag}
           </span>
         </div>
 
         {/* Hinge-style Prompt Container (Custard Color Block) */}
         {pet.prompts.length > 0 && (
-          <div className="bg-custard rounded-[20px] p-3 text-jet shadow-sm">
-            <span className="text-[10px] uppercase tracking-wider font-extrabold text-marigold-dark block mb-0.5">
+          <div className="bg-custard rounded-[20px] p-3.5 text-jet shadow-sm">
+            <span className="text-xs uppercase tracking-wider font-extrabold text-marigold-dark block mb-1">
               {pet.prompts[0].question}
             </span>
-            <p className="text-xs font-bold leading-snug">
+            <p className="text-xs font-bold leading-relaxed text-pretty">
               &ldquo;{pet.prompts[0].answer}&rdquo;
             </p>
           </div>
@@ -138,7 +138,7 @@ export function PetCard({ pet, onPass, onSave, onViewProfile }: PetCardProps) {
           {pet.decodedNotes.map((note, idx) => (
             <span
               key={idx}
-              className={`text-[10px] font-bold px-2.5 py-1 rounded-full shadow-sm ${
+              className={`text-xs font-bold px-3 py-1 rounded-full shadow-sm ${
                 note.type === "green_flag"
                   ? "bg-white/90 text-jet"
                   : "bg-marigold-light/30 text-jet border border-marigold/30"

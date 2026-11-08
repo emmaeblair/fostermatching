@@ -12,7 +12,7 @@ export function SessionTray({ savedPets, onViewSaved }: SessionTrayProps) {
     return (
       <div className="w-full max-w-sm mx-auto pt-3 border-t border-slate-200/60 flex items-center justify-between text-xs font-semibold text-slate-400">
         <span>No saved pets yet</span>
-        <span className="text-[11px]">Swipe right or click Save ♥</span>
+        <span className="text-xs">Swipe right or click Save ♥</span>
       </div>
     );
   }

@@ -12,21 +12,21 @@ colors:
   neutral-white: "#FFFFFF"
 typography:
   display:
-    fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif"
+    fontFamily: "var(--font-plus-jakarta), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
     fontSize: "1.25rem"
-    fontWeight: 700
-    lineHeight: 1.2
-  body:
-    fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif"
-    fontSize: "0.875rem"
-    fontWeight: 500
-    lineHeight: 1.5
-  label:
-    fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif"
-    fontSize: "0.6875rem"
     fontWeight: 800
     lineHeight: 1.2
-    letterSpacing: "0.05em"
+  body:
+    fontFamily: "var(--font-plus-jakarta), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
+    fontSize: "0.875rem"
+    fontWeight: 600
+    lineHeight: 1.5
+  label:
+    fontFamily: "var(--font-plus-jakarta), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
+    fontSize: "0.75rem"
+    fontWeight: 700
+    lineHeight: 1.2
+    letterSpacing: "0.03em"
 rounded:
   sm: "8px"
   md: "12px"
@@ -104,19 +104,21 @@ The palette balances joyful pastel color blocks with deep, grounding ink tones t
 
 ## Typography
 
-**Body & System Font:** System Sans-Serif (`-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif`)
+**Primary Font:** Plus Jakarta Sans (`var(--font-plus-jakarta)`, with `-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif` fallback)
 
-**Character:** Clean, crisp, and neutral. The typography steps back to let pet photography, conversational quotes, and bold surface colors lead the visual hierarchy.
+**Character:** Geometric, confident, and warm. Its rounded bowls and generous apertures echo the squircle curves (`rounded-[28px]`) of our cards and buttons without crossing into childishness.
 
 ### Hierarchy
-- **Display / Pet Name** (Bold, `1.25rem` / `20px`, line-height `1.2`): Used for the pet's name and age at the top of the card.
-- **Headline / Section Header** (Extra Bold, `1rem` / `16px`, line-height `1.3`): Used for dashboard panel titles ("Your Saved Pack", "Search Filters").
-- **Title / Prompt Question** (Extra Bold, `0.6875rem` / `11px`, letter-spacing `0.05em`, uppercase): Used for prompt category headers ("THE WAY TO WIN ME OVER...").
-- **Body / Prompt Answer** (Medium to Bold, `0.75rem` / `12px` to `0.875rem` / `14px`, line-height `1.4`): Used for first-person bio answers and shelter descriptions.
-- **Label / Badges** (Bold to Extra Bold, `0.625rem` / `10px` to `0.6875rem` / `11px`, line-height `1.2`): Used for decoded trait pills and distance tags.
+- **Display / Pet Name** (Extra Bold 800, `1.25rem` / `20px`, line-height `1.2`): Used for the pet's name and age at the top of the card with `text-balance`.
+- **Headline / Section Header** (Extra Bold 800, `1rem` / `16px`, line-height `1.3`): Used for dashboard panel titles ("Your Saved Pack", "Search Filters").
+- **Title / Prompt Question** (Extra Bold 800, `0.75rem` / `12px`, letter-spacing `0.05em`, uppercase): Used for prompt category headers ("THE WAY TO WIN ME OVER...").
+- **Body / Prompt Answer** (Bold 700, `0.75rem` / `12px` to `0.875rem` / `14px`, line-height `1.5`): Used for first-person bio answers with `text-pretty`.
+- **Label / Badges** (Bold 700 to Extra Bold 800, `0.75rem` / `12px`, line-height `1.2`): Used for decoded trait pills and distance tags. Minimum text size is anchored at `12px` (`text-xs`) to prevent sub-12px micro-text strain.
 
 ### Named Rules
 **The Scannable Vitals Rule.** Core pet vitals (name, age, breed, distance) must be legible within 1.5 seconds. They must never be obscured by photo gradients or low-contrast text.
+
+**The No Micro-Text Rule.** Never use sub-12px text (`text-[10px]` or below). All badges, metadata labels, and timestamps have a hard floor at `12px` (`text-xs`) with deliberate weight (700/800) to ensure high readability across both mobile screens and desktop monitors.
 
 ## Layout
 

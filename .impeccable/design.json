@@ -83,15 +83,15 @@
     "typographyMeta": {
       "display": {
         "displayName": "Display / Pet Name",
-        "purpose": "Hero pet names and main headlines."
+        "purpose": "Plus Jakarta Sans ExtraBold (800) for hero pet names and main headlines with text-balance."
       },
       "body": {
         "displayName": "Body Text",
-        "purpose": "Prompt quotes, foster descriptions, and general readability."
+        "purpose": "Plus Jakarta Sans Bold (700) for prompt quotes and descriptions with text-pretty."
       },
       "label": {
         "displayName": "Badge & Vitals Label",
-        "purpose": "Decoded behavioral chips and scannable specs."
+        "purpose": "Plus Jakarta Sans Bold (700/800) with 12px floor for decoded behavioral chips and scannable specs."
       }
     },
     "shadows": [

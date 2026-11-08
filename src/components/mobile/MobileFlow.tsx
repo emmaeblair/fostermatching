@@ -42,10 +42,10 @@ export function MobileFlow({
         </div>
 
         {/* Mini Species Toggle */}
-        <div className="flex items-center gap-1 bg-white p-0.5 rounded-full border border-slate-200 text-[11px] font-bold">
+        <div className="flex items-center gap-1 bg-white p-0.5 rounded-full border border-slate-200 text-xs font-bold">
           <button
             onClick={() => onSelectSpecies("all")}
-            className={`px-2 py-0.5 rounded-full ${
+            className={`px-2.5 py-1 rounded-full ${
               selectedSpecies === "all" ? "bg-jet text-white" : "text-slate-500"
             }`}
           >
@@ -53,7 +53,7 @@ export function MobileFlow({
           </button>
           <button
             onClick={() => onSelectSpecies("dog")}
-            className={`px-2 py-0.5 rounded-full ${
+            className={`px-2.5 py-1 rounded-full ${
               selectedSpecies === "dog" ? "bg-jet text-white" : "text-slate-500"
             }`}
           >
@@ -61,7 +61,7 @@ export function MobileFlow({
           </button>
           <button
             onClick={() => onSelectSpecies("cat")}
-            className={`px-2 py-0.5 rounded-full ${
+            className={`px-2.5 py-1 rounded-full ${
               selectedSpecies === "cat" ? "bg-jet text-white" : "text-slate-500"
             }`}
           >
@@ -73,7 +73,7 @@ export function MobileFlow({
       {/* Toast */}
       <div className="h-6 flex items-center justify-center">
         {toastMessage && (
-          <div className="text-[11px] font-extrabold px-3 py-1 rounded-full bg-jet text-white shadow-md animate-fade-in">
+          <div className="text-xs font-extrabold px-3 py-1 rounded-full bg-jet text-white shadow-md animate-fade-in">
             {toastMessage}
           </div>
         )}
