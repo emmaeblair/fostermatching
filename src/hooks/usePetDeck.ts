@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useCallback, useRef } from "react";
+import { useState, useCallback, useRef, useEffect } from "react";
 import { MOCK_PETS } from "@/data/mock-pets";
 import { Pet, Species } from "@/types/pet";
 
@@ -22,9 +22,37 @@ export function usePetDeck() {
   const [appliedPetIds, setAppliedPetIds] = useState<string[]>([]);
   const [inspectingPet, setInspectingPet] = useState<Pet | null>(null);
   const [toastMessage, setToastMessage] = useState<string | null>(null);
+  const [pendingApplyConfirmationPet, setPendingApplyConfirmationPet] = useState<Pet | null>(null);
 
   // Ref to track whether the active deck pet was acted upon (applied or saved) in the modal
   const activePetActedOnInModalRef = useRef(false);
+  const awaitingReturnRef = useRef<string | null>(null);
+
+  // Listen for user returning to tab/window after clicking outbound application link
+  useEffect(() => {
+    const handleReturn = () => {
+      if (awaitingReturnRef.current) {
+        const petId = awaitingReturnRef.current;
+        const target = MOCK_PETS.find((p) => p.id === petId);
+        if (target) {
+          setPendingApplyConfirmationPet(target);
+        }
+      }
+    };
+
+    window.addEventListener("focus", handleReturn);
+    const handleVisibility = () => {
+      if (document.visibilityState === "visible") {
+        handleReturn();
+      }
+    };
+    document.addEventListener("visibilitychange", handleVisibility);
+
+    return () => {
+      window.removeEventListener("focus", handleReturn);
+      document.removeEventListener("visibilitychange", handleVisibility);
+    };
+  }, []);
 
   // Filter available pets based on selected species & lifestyle toggles
   const filteredPets = MOCK_PETS.filter((pet) => {
@@ -162,6 +190,46 @@ export function usePetDeck() {
     setCurrentIndex(0);
   }, []);
 
+  const recordOutboundApplyClick = useCallback((pet: Pet) => {
+    // Record pending pet without marking applied or saved automatically
+    awaitingReturnRef.current = pet.id;
+    setPendingApplyConfirmationPet(pet);
+  }, []);
+
+  const confirmApplicationSubmitted = useCallback((pet: Pet) => {
+    awaitingReturnRef.current = null;
+    setPendingApplyConfirmationPet(null);
+
+    // Mark as applied
+    setAppliedPetIds((prev) => {
+      if (!prev.includes(pet.id)) {
+        return [...prev, pet.id];
+      }
+      return prev;
+    });
+
+    // Mark as saved
+    setSavedPets((prev) => {
+      if (!prev.some((p) => p.id === pet.id)) {
+        return [...prev, pet];
+      }
+      return prev;
+    });
+
+    // If this is the active pet in the deck, flag it so closing the modal advances the deck
+    if (activePet && pet.id === activePet.id) {
+      activePetActedOnInModalRef.current = true;
+    }
+
+    showToast(`Marked as applied for ${pet.name} and saved to your pack! 💌`);
+  }, [activePet, showToast]);
+
+  const dismissApplicationConfirmation = useCallback(() => {
+    awaitingReturnRef.current = null;
+    setPendingApplyConfirmationPet(null);
+    showToast("No problem! You can decide to save or mark as applied anytime.");
+  }, [showToast]);
+
   return {
     selectedSpecies,
     setSelectedSpecies: (species: Species | "all") => {
@@ -177,6 +245,7 @@ export function usePetDeck() {
     appliedPetIds,
     inspectingPet,
     toastMessage,
+    pendingApplyConfirmationPet,
     totalCount: filteredPets.length,
     currentIndex,
     isSaved,
@@ -188,5 +257,8 @@ export function usePetDeck() {
     handlePass,
     handleSave,
     handleRestart,
+    recordOutboundApplyClick,
+    confirmApplicationSubmitted,
+    dismissApplicationConfirmation,
   };
 }

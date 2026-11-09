@@ -57,6 +57,7 @@ interface DesktopFlowProps {
   onViewProfile: (pet: Pet) => void;
   isApplied: (petId: string) => boolean;
   onOpenDrop?: () => void;
+  onOutboundApply?: (pet: Pet) => void;
 }
 
 export function DesktopFlow({
@@ -77,6 +78,7 @@ export function DesktopFlow({
   onViewProfile,
   isApplied,
   onOpenDrop,
+  onOutboundApply,
 }: DesktopFlowProps) {
   const [tipIndex, setTipIndex] = useState(0);
 
@@ -355,7 +357,12 @@ export function DesktopFlow({
                           href={pet.shelter.applicationUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          onClick={(e) => e.stopPropagation()}
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            if (!hasApplied) {
+                              onOutboundApply?.(pet);
+                            }
+                          }}
                           className={`px-3 py-1.5 rounded-xl text-xs font-extrabold transition-colors flex items-center gap-1 shadow-sm ${
                             hasApplied
                               ? "bg-candy hover:bg-candy-dark text-white"

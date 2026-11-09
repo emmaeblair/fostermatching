@@ -27,6 +27,10 @@ interface PetProfileModalProps {
   onToggleApplied: () => void;
   onToggleSave: () => void;
   onClose: () => void;
+  onOutboundApply?: (pet: Pet) => void;
+  pendingApplyConfirmationPet?: Pet | null;
+  onConfirmApplied?: (pet: Pet) => void;
+  onDismissAppliedPrompt?: () => void;
 }
 
 export function PetProfileModal({
@@ -36,9 +40,14 @@ export function PetProfileModal({
   onToggleApplied,
   onToggleSave,
   onClose,
+  onOutboundApply,
+  pendingApplyConfirmationPet,
+  onConfirmApplied,
+  onDismissAppliedPrompt,
 }: PetProfileModalProps) {
   const [selectedPhotoIndex, setSelectedPhotoIndex] = useState(0);
   const [copiedShare, setCopiedShare] = useState(false);
+  const [localAwaitingApply, setLocalAwaitingApply] = useState(false);
 
   const nextPhoto = useCallback(() => {
     setSelectedPhotoIndex((prev) => (prev + 1) % pet.photos.length);
@@ -233,15 +242,61 @@ export function PetProfileModal({
 
           {/* Primary Action Sequence */}
           <div className="p-4 rounded-[24px] bg-white/90 border border-cocoa/15 space-y-3">
+            
+            {/* Return Confirmation Prompt: Asks if user submitted application on shelter site */}
+            {(localAwaitingApply || (pendingApplyConfirmationPet?.id === pet.id)) && !isApplied && (
+              <div className="p-4 rounded-[22px] bg-candy/15 border-2 border-candy/40 animate-fade-in space-y-2.5">
+                <div className="flex items-start gap-2.5">
+                  <span className="text-xl">💌</span>
+                  <div>
+                    <h4 className="font-extrabold text-xs sm:text-sm text-cocoa">
+                      Welcome back! Did you submit an application on the shelter site for {pet.name}?
+                    </h4>
+                    <p className="text-xs font-semibold text-cocoa-muted mt-0.5">
+                      If yes, we&rsquo;ll mark both applied and saved in your pack. If no, you can decide whenever you&rsquo;re ready!
+                    </p>
+                  </div>
+                </div>
+                <div className="flex flex-wrap items-center gap-2 pt-1">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setLocalAwaitingApply(false);
+                      if (onConfirmApplied) {
+                        onConfirmApplied(pet);
+                      } else {
+                        onToggleApplied();
+                        if (!isSaved) onToggleSave();
+                      }
+                    }}
+                    className="px-4 py-2 rounded-full bg-candy hover:bg-candy-dark text-white text-xs font-extrabold shadow-sm transition-all active:scale-95 flex items-center gap-1.5"
+                  >
+                    <span>Yes, I Applied! 💌</span>
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setLocalAwaitingApply(false);
+                      onDismissAppliedPrompt?.();
+                    }}
+                    className="px-4 py-2 rounded-full bg-white hover:bg-biscuit/40 text-cocoa border border-cocoa/20 text-xs font-extrabold transition-all active:scale-95"
+                  >
+                    <span>No, just browsing</span>
+                  </button>
+                </div>
+              </div>
+            )}
+
             <div className="flex flex-col sm:flex-row gap-2.5">
-              {/* Outbound Link Button (Auto-Marks as Applied & Saved) */}
+              {/* Outbound Link Button (Opens shelter site without auto-marking) */}
               <a
                 href={pet.shelter.applicationUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => {
                   if (!isApplied) {
-                    onToggleApplied();
+                    setLocalAwaitingApply(true);
+                    onOutboundApply?.(pet);
                   }
                 }}
                 className="flex-1 py-3.5 px-5 rounded-full bg-candy text-white font-extrabold text-xs sm:text-sm flex items-center justify-center gap-2 hover:bg-candy-dark transition-all shadow-md active:scale-95"
