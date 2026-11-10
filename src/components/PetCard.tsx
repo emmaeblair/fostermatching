@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useCallback } from "react";
 import { Pet } from "@/types/pet";
-import { ChevronLeft, ChevronRight, Heart, X, MapPin, Sparkles, CheckCircle2, ArrowUpRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, Heart, X, MapPin, Sparkles, CheckCircle2 } from "lucide-react";
 
 interface PetCardProps {
   pet: Pet;
@@ -96,12 +96,6 @@ export function PetCard({ pet, isApplied, onPass, onSave, onViewProfile }: PetCa
             </div>
           )}
 
-          {/* Hover Prompt to View Profile */}
-          <div className="absolute bottom-3 right-3.5 bg-cocoa/80 text-white font-extrabold text-xs px-3 py-1.5 rounded-full backdrop-blur-md opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1 z-10">
-            <span>View Profile</span>
-            <ArrowUpRight className="w-3.5 h-3.5" />
-          </div>
-
           {/* Tap Chevron Arrows */}
           {pet.photos.length > 1 && (
             <>
@@ -131,21 +125,21 @@ export function PetCard({ pet, isApplied, onPass, onSave, onViewProfile }: PetCa
           )}
         </div>
 
-        {/* Pet Name, Age & Location Stats */}
-        <div className="px-1 pt-0.5 flex items-baseline justify-between">
-          <div>
-            <h2 className="text-2xl font-extrabold tracking-tight text-cocoa text-balance">
-              {pet.name}, <span className="text-xl font-bold text-cocoa-muted">{pet.age}</span>
+        {/* Pet Name - Breed, Age & Location Stats */}
+        <div className="px-1 pt-0.5 space-y-1.5">
+          <div className="flex items-baseline justify-between gap-3">
+            <h2 className="text-xl sm:text-2xl font-extrabold tracking-tight text-cocoa leading-snug">
+              {pet.name} <span className="text-lg sm:text-xl font-bold text-cocoa/75">— {pet.breed}</span>
             </h2>
-            <p className="text-xs font-semibold text-cocoa-muted flex items-center gap-1.5 mt-0.5">
-              <MapPin className="w-3.5 h-3.5 text-sunset shrink-0" />
-              <span>{pet.breed} • {pet.distanceMiles} mi away ({pet.shelter.city})</span>
-            </p>
+            <span className="text-sm font-extrabold text-cocoa-muted shrink-0">
+              {pet.age}
+            </span>
           </div>
 
-          <span className="text-xs font-extrabold text-sunset group-hover:underline flex items-center gap-0.5">
-            Details ↗
-          </span>
+          <p className="text-sm font-bold text-cocoa-muted flex items-center gap-1.5">
+            <MapPin className="w-4 h-4 text-sunset shrink-0" />
+            <span>{pet.distanceMiles} mi away ({pet.shelter.city}, {pet.shelter.state})</span>
+          </p>
         </div>
 
         {/* Nested Prompt Block (Warm Biscuit Surface) */}

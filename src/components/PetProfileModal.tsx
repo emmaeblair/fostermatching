@@ -228,11 +228,11 @@ export function PetProfileModal({
           <div className="flex flex-wrap items-center justify-between gap-2 pb-2">
             <div>
               <h1 className="text-2xl font-extrabold text-cocoa tracking-tight">
-                {pet.name}, <span className="text-xl font-bold text-cocoa-muted">{pet.age}</span>
+                {pet.name} <span className="text-xl font-bold text-cocoa/75">— {pet.breed}</span>
               </h1>
-              <p className="text-xs font-semibold text-cocoa-muted flex items-center gap-1.5 mt-1">
+              <p className="text-sm font-bold text-cocoa-muted flex items-center gap-1.5 mt-1">
                 <MapPin className="w-4 h-4 text-sunset shrink-0" />
-                <span>{pet.breed} • {pet.gender} • {pet.size} ({pet.weightLbs || 25} lbs) • {pet.distanceMiles} mi away</span>
+                <span>{pet.distanceMiles} mi away ({pet.shelter.city}, {pet.shelter.state}) • {pet.age} • {pet.gender} • {pet.size} ({pet.weightLbs || 25} lbs)</span>
               </p>
             </div>
             <span className="text-xs font-extrabold px-3.5 py-1.5 rounded-full bg-white text-cocoa border border-cocoa/15 shadow-sm">

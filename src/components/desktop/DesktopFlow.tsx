@@ -100,14 +100,9 @@ export function DesktopFlow({
             🐾
           </div>
           <div>
-            <div className="flex items-center gap-2">
-              <h1 className="font-extrabold text-2xl tracking-tight text-cocoa">
-                AdoptionMatch
-              </h1>
-              <span className="text-xs font-extrabold px-2.5 py-0.5 rounded-full bg-candy text-white shadow-xs">
-                Candy Sunset
-              </span>
-            </div>
+            <h1 className="font-extrabold text-2xl tracking-tight text-cocoa">
+              AdoptionMatch
+            </h1>
             <p className="text-xs font-bold text-cocoa/80">
               Find the companion who fits the rhythm of your day.
             </p>
@@ -427,7 +422,7 @@ export function DesktopFlow({
       {/* Footer */}
       <footer className="pt-5 border-t border-cocoa/15 flex items-center justify-between text-xs font-bold text-cocoa/80">
         <span>Rescue inventory sourced from public rescue syndication (RescueGroups.org v5 format)</span>
-        <span className="font-extrabold text-cocoa">AdoptionMatch • Candy Sunset Edition</span>
+        <span className="font-extrabold text-cocoa">AdoptionMatch</span>
       </footer>
     </div>
   );
