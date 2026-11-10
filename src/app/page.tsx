@@ -9,7 +9,8 @@ import { DailyPetDrop } from "@/components/DailyPetDrop";
 
 export default function MatchingPage() {
   const deck = usePetDeck();
-  const [activeTab, setActiveTab] = useState<"drop" | "deck">("drop");
+  // Daily pets drop intro is temporarily paused while design principles are refined; defaulting to core deck
+  const [activeTab, setActiveTab] = useState<"drop" | "deck">("deck");
 
   return (
     <>
@@ -45,7 +46,6 @@ export default function MatchingPage() {
               toastMessage={deck.toastMessage}
               onViewProfile={deck.openProfile}
               isApplied={deck.isApplied}
-              onOpenDrop={() => setActiveTab("drop")}
               onOutboundApply={deck.recordOutboundApplyClick}
             />
           </div>
@@ -64,7 +64,6 @@ export default function MatchingPage() {
               toastMessage={deck.toastMessage}
               onViewProfile={deck.openProfile}
               isApplied={deck.isApplied}
-              onOpenDrop={() => setActiveTab("drop")}
             />
           </div>
         </>
