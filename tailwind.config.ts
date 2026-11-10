@@ -12,36 +12,41 @@ export default {
         sans: ["var(--font-plus-jakarta)", "-apple-system", "BlinkMacSystemFont", "sans-serif"],
       },
       colors: {
-        // Candy Sunset Palette (From User Reference)
+        // Periwinkle Main Brand Palette (with Bold Tangerine & Buttercup Pop)
+        periwinkle: {
+          light: "#EEF2FF",
+          DEFAULT: "#6C8BF5",
+          dark: "#4967CE",
+        },
         biscuit: {
-          light: "#FDF4E5",
-          DEFAULT: "#F7E7CD",
-          dark: "#EAD4B3",
+          light: "#FFFFFF",
+          DEFAULT: "#F8F9FE",
+          dark: "#EEF1FA",
         },
         sunset: {
-          light: "#FF732B",
-          DEFAULT: "#FF5701",
-          dark: "#D94500",
+          light: "#FFA05C",
+          DEFAULT: "#FF8A3D",
+          dark: "#E06D20",
         },
         candy: {
-          light: "#FF94CB",
-          DEFAULT: "#FE76BA",
-          dark: "#E659A2",
+          light: "#93ABFF",
+          DEFAULT: "#6C8BF5",
+          dark: "#4967CE",
         },
         mango: {
-          light: "#FFB054",
-          DEFAULT: "#FA9630",
-          dark: "#D67817",
+          light: "#FEF9C3",
+          DEFAULT: "#FDF18A",
+          dark: "#EAB308",
         },
         lilac: {
-          light: "#FCE2F3",
-          DEFAULT: "#F7B0E1",
-          dark: "#DE90C6",
+          light: "#F5F7FF",
+          DEFAULT: "#EEF2FF",
+          dark: "#DDE4FF",
         },
         cocoa: {
-          light: "#422517",
-          DEFAULT: "#241107",
-          muted: "#78442A",
+          light: "#3A456B",
+          DEFAULT: "#1E2540",
+          muted: "#5A6588",
         },
         // Legacy alias mappings for seamless fallback
         terracotta: {
@@ -63,10 +68,7 @@ export default {
           DEFAULT: "#241107",
         },
         marigold: {
-          DEFAULT: "#FA9630",
-        },
-        periwinkle: {
-          DEFAULT: "#FF5701",
+          DEFAULT: "#FF8A3D",
         },
       },
     },
