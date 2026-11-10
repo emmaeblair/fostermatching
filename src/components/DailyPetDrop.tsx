@@ -325,7 +325,7 @@ export function DailyPetDrop({
                 >
                   {/* Match Score Badge */}
                   <div className="w-full flex items-center justify-between pointer-events-none">
-                    <span className="text-xs font-extrabold px-2 py-0.5 rounded-full bg-mango text-white shadow-xs flex items-center gap-1">
+                    <span className="text-xs font-extrabold px-2 py-0.5 rounded-full bg-sunset text-white shadow-xs flex items-center gap-1">
                       <Star className="w-3 h-3 fill-white" />
                       <span>{pet.matchScore}%</span>
                     </span>
@@ -465,7 +465,7 @@ export function DailyPetDrop({
                       )}
 
                       {/* Top Match Pill */}
-                      <div className="absolute top-6 left-3.5 bg-mango text-white text-xs font-extrabold px-3 py-1.5 rounded-full shadow-lg flex items-center gap-1.5 border border-white/40 z-10">
+                      <div className="absolute top-6 left-3.5 bg-sunset text-white text-xs font-extrabold px-3 py-1.5 rounded-full shadow-lg flex items-center gap-1.5 border border-white/40 z-10">
                         <Star className="w-3.5 h-3.5 fill-white" />
                         <span>{activeSpotlightPet.matchScore}% Compatibility</span>
                       </div>

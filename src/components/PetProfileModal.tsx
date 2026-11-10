@@ -149,9 +149,9 @@ export function PetProfileModal({
                 className="w-full h-full object-cover"
               />
 
-              {/* Match Score Badge (Golden Mango) */}
+              {/* Match Score Badge (Electric Tangerine Orange) */}
               {pet.matchScore && (
-                <div className="absolute top-3 left-3 bg-mango text-white font-extrabold text-xs px-3.5 py-1.5 rounded-full shadow-md flex items-center gap-1.5 border border-white/40">
+                <div className="absolute top-3 left-3 bg-sunset text-white font-extrabold text-xs px-3.5 py-1.5 rounded-full shadow-md flex items-center gap-1.5 border border-white/40">
                   <Sparkles className="w-4 h-4 fill-white" />
                   <span>{pet.matchScore}% Lifestyle Match</span>
                 </div>

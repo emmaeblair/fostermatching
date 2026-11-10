@@ -84,9 +84,9 @@ export function PetCard({ pet, isApplied, onPass, onSave, onViewProfile }: PetCa
             </div>
           )}
 
-          {/* Match Score Floating Badge (Golden Mango) */}
+          {/* Match Score Floating Badge (Electric Tangerine Orange) */}
           {pet.matchScore && (
-            <div className="absolute bottom-3 left-3.5 bg-mango text-white font-extrabold text-xs px-3.5 py-1.5 rounded-full shadow-lg flex items-center gap-1.5 border border-white/40 z-10">
+            <div className="absolute bottom-3 left-3.5 bg-sunset text-white font-extrabold text-xs px-3.5 py-1.5 rounded-full shadow-lg flex items-center gap-1.5 border border-white/40 z-10">
               <Sparkles className="w-3.5 h-3.5 fill-white" />
               <span>{pet.matchScore}% Match</span>
             </div>
