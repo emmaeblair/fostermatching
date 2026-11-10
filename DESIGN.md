@@ -1,16 +1,16 @@
 ---
 name: AdoptionMatch
-description: Dating-style discovery for adoptable rescue companions in an Electric Periwinkle & Tangerine Pop brand aesthetic
+description: Dating-style discovery for adoptable rescue companions with full Periwinkle Canvas and Electric Tangerine Pop
 colors:
+  canvas-periwinkle: "#6C8BF5"
   primary-periwinkle: "#6C8BF5"
   primary-dark: "#4967CE"
-  accent-tangerine: "#FF8A3D"
+  cta-tangerine: "#FF8A3D"
   highlight-buttercup: "#FDF18A"
-  surface-canvas: "#F8F9FE"
+  surface-white: "#FFFFFF"
   badge-tint: "#EEF2FF"
   ink-cocoa: "#1E2540"
   ink-muted: "#5A6588"
-  surface-white: "#FFFFFF"
 typography:
   display:
     fontFamily: "var(--font-plus-jakarta), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"

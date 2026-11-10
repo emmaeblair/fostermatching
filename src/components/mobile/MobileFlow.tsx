@@ -39,17 +39,17 @@ export function MobileFlow({
       {/* Top Mobile Bar */}
       <header className="flex items-center justify-between pb-2">
         <div className="flex items-center gap-2">
-          <div className="w-8 h-8 rounded-xl bg-sunset text-white flex items-center justify-center text-sm shadow-md border border-white/40 font-bold">
+          <div className="w-8 h-8 rounded-xl bg-white text-periwinkle flex items-center justify-center text-sm shadow-md border border-white/40 font-black">
             🐾
           </div>
-          <h1 className="font-extrabold text-base tracking-tight text-cocoa">
+          <h1 className="font-extrabold text-base tracking-tight text-white">
             AdoptionMatch
           </h1>
           {onOpenDrop && (
             <button
               type="button"
               onClick={onOpenDrop}
-              className="px-2 py-0.5 rounded-full text-xs font-extrabold bg-mango text-white shadow-xs"
+              className="px-2 py-0.5 rounded-full text-xs font-extrabold bg-mango text-cocoa shadow-xs"
             >
               ✨ Drop
             </button>
@@ -57,7 +57,7 @@ export function MobileFlow({
         </div>
 
         {/* Mini Species Toggle */}
-        <div className="flex items-center gap-1 bg-white p-0.5 rounded-full border border-cocoa/15 text-xs font-bold shadow-sm">
+        <div className="flex items-center gap-1 bg-white/95 p-0.5 rounded-full border border-white/20 text-xs font-bold shadow-sm">
           <button
             onClick={() => onSelectSpecies("all")}
             className={`px-2.5 py-1 rounded-full transition-all ${

@@ -94,23 +94,23 @@ export function DesktopFlow({
   return (
     <div className="min-h-screen bg-biscuit px-8 py-7 flex flex-col justify-between max-w-6xl mx-auto selection:bg-candy selection:text-white">
       {/* Top Desktop Navigation */}
-      <header className="flex items-center justify-between pb-5 border-b border-cocoa/15">
+      <header className="flex items-center justify-between pb-5 border-b border-white/20">
         <div className="flex items-center gap-3">
-          <div className="w-11 h-11 rounded-2xl bg-sunset text-white flex items-center justify-center text-xl shadow-md border border-white/40">
+          <div className="w-11 h-11 rounded-2xl bg-white text-periwinkle flex items-center justify-center text-xl shadow-md border border-white/40 font-black">
             🐾
           </div>
           <div>
-            <h1 className="font-extrabold text-2xl tracking-tight text-cocoa">
+            <h1 className="font-extrabold text-2xl tracking-tight text-white">
               AdoptionMatch
             </h1>
-            <p className="text-xs font-bold text-cocoa/80">
+            <p className="text-xs font-bold text-white/80">
               Find the companion who fits the rhythm of your day.
             </p>
           </div>
         </div>
 
         {/* Center: Species Selector Tabs */}
-        <div className="flex items-center gap-1.5 bg-white/90 p-1.5 rounded-full shadow-md border border-cocoa/15">
+        <div className="flex items-center gap-1.5 bg-white/95 p-1.5 rounded-full shadow-md border border-white/20">
           <button
             onClick={() => onSelectSpecies("all")}
             className={`px-4 py-1.5 rounded-full text-xs font-extrabold transition-all ${
@@ -149,14 +149,14 @@ export function DesktopFlow({
             <button
               type="button"
               onClick={onOpenDrop}
-              className="px-3.5 py-1.5 rounded-full text-xs font-extrabold bg-mango hover:bg-mango-dark text-white shadow-md transition-all flex items-center gap-1.5 border border-white/30 active:scale-95"
+              className="px-3.5 py-1.5 rounded-full text-xs font-extrabold bg-mango hover:bg-mango-dark text-cocoa shadow-md transition-all flex items-center gap-1.5 border border-white/30 active:scale-95"
             >
-              <Sparkles className="w-3.5 h-3.5 fill-white" />
+              <Sparkles className="w-3.5 h-3.5 fill-cocoa" />
               <span>Daily Drop</span>
             </button>
           )}
 
-          <div className="flex items-center gap-2 text-xs font-extrabold px-4 py-1.5 rounded-full bg-white/90 text-cocoa shadow-md border border-cocoa/15">
+          <div className="flex items-center gap-2 text-xs font-extrabold px-4 py-1.5 rounded-full bg-white/95 text-cocoa shadow-md border border-white/20">
             <MapPin className="w-4 h-4 text-sunset" />
             <span>Seattle, WA • 25 mi</span>
           </div>
@@ -189,10 +189,10 @@ export function DesktopFlow({
               />
 
               {/* Keyboard Navigation Tip */}
-              <div className="flex items-center gap-2 text-xs font-bold text-cocoa/85 mt-0.5">
-                <Keyboard className="w-3.5 h-3.5 text-cocoa" />
+              <div className="flex items-center gap-2 text-xs font-bold text-white/90 mt-0.5">
+                <Keyboard className="w-3.5 h-3.5 text-white/90" />
                 <span className="flex items-center gap-1">
-                  Use <kbd className="px-1.5 py-0.5 rounded bg-white text-cocoa font-mono shadow-xs border border-cocoa/20">←</kbd> <kbd className="px-1.5 py-0.5 rounded bg-white text-cocoa font-mono shadow-xs border border-cocoa/20">→</kbd> for photos • click card for full profile
+                  Use <kbd className="px-1.5 py-0.5 rounded bg-white/20 text-white font-mono shadow-xs border border-white/30">←</kbd> <kbd className="px-1.5 py-0.5 rounded bg-white/20 text-white font-mono shadow-xs border border-white/30">→</kbd> for photos • click card for full profile
                 </span>
               </div>
             </div>
@@ -260,7 +260,7 @@ export function DesktopFlow({
                 className={`px-3.5 py-1.5 rounded-full text-xs font-extrabold transition-all flex items-center gap-1.5 border ${
                   lifestyleFilters.apartmentOnly
                     ? "bg-sunset text-white border-sunset shadow-sm"
-                    : "bg-biscuit/45 text-cocoa border-cocoa/15 hover:bg-biscuit"
+                    : "bg-slate-100 text-cocoa border-slate-200 hover:bg-slate-200"
                 }`}
               >
                 <span>🏢 Apartment Friendly</span>
@@ -272,7 +272,7 @@ export function DesktopFlow({
                 className={`px-3.5 py-1.5 rounded-full text-xs font-extrabold transition-all flex items-center gap-1.5 border ${
                   lifestyleFilters.catFriendlyOnly
                     ? "bg-sunset text-white border-sunset shadow-sm"
-                    : "bg-biscuit/45 text-cocoa border-cocoa/15 hover:bg-biscuit"
+                    : "bg-slate-100 text-cocoa border-slate-200 hover:bg-slate-200"
                 }`}
               >
                 <span>🐱 Safe with Cats</span>
@@ -284,7 +284,7 @@ export function DesktopFlow({
                 className={`px-3.5 py-1.5 rounded-full text-xs font-extrabold transition-all flex items-center gap-1.5 border ${
                   lifestyleFilters.dogFriendlyOnly
                     ? "bg-sunset text-white border-sunset shadow-sm"
-                    : "bg-biscuit/45 text-cocoa border-cocoa/15 hover:bg-biscuit"
+                    : "bg-slate-100 text-cocoa border-slate-200 hover:bg-slate-200"
                 }`}
               >
                 <span>🐶 Friendly with Dogs</span>
@@ -319,7 +319,7 @@ export function DesktopFlow({
                     <div
                       key={pet.id}
                       onClick={() => onViewProfile(pet)}
-                      className="p-3 rounded-2xl bg-biscuit/35 border border-cocoa/10 flex items-center justify-between gap-2.5 hover:bg-biscuit/70 transition-all cursor-pointer group"
+                      className="p-3 rounded-2xl bg-slate-50 border border-slate-200/80 flex items-center justify-between gap-2.5 hover:bg-slate-100 transition-all cursor-pointer group"
                     >
                       <div className="flex items-center gap-2.5 min-w-0">
                         <img
@@ -420,9 +420,9 @@ export function DesktopFlow({
       </main>
 
       {/* Footer */}
-      <footer className="pt-5 border-t border-cocoa/15 flex items-center justify-between text-xs font-bold text-cocoa/80">
+      <footer className="pt-5 border-t border-white/20 flex items-center justify-between text-xs font-bold text-white/80">
         <span>Rescue inventory sourced from public rescue syndication (RescueGroups.org v5 format)</span>
-        <span className="font-extrabold text-cocoa">AdoptionMatch</span>
+        <span className="font-extrabold text-white">AdoptionMatch</span>
       </footer>
     </div>
   );

@@ -138,10 +138,10 @@ export function PetCard({ pet, isApplied, onPass, onSave, onViewProfile }: PetCa
           </p>
         </div>
 
-        {/* Nested Prompt Block (Warm Biscuit Surface) */}
+        {/* Nested Prompt Block (Buttercup Accent Surface) */}
         {pet.prompts.length > 0 && (
-          <div className="bg-biscuit/45 rounded-[22px] p-4 text-cocoa border border-cocoa/10 shadow-xs space-y-1">
-            <span className="text-xs uppercase tracking-wider font-extrabold text-sunset block">
+          <div className="bg-mango/25 rounded-[22px] p-4 text-cocoa border border-mango/40 shadow-xs space-y-1">
+            <span className="text-xs uppercase tracking-wider font-extrabold text-sunset-dark block">
               {pet.prompts[0].question}
             </span>
             <p className="text-xs font-bold leading-relaxed text-pretty text-cocoa/90">
@@ -157,8 +157,8 @@ export function PetCard({ pet, isApplied, onPass, onSave, onViewProfile }: PetCa
               key={idx}
               className={`text-xs font-bold px-3 py-1.5 rounded-full shadow-xs ${
                 note.type === "green_flag"
-                  ? "bg-biscuit/60 text-cocoa border border-cocoa/10"
-                  : "bg-lilac/40 text-cocoa border border-lilac"
+                  ? "bg-slate-100 text-cocoa border border-slate-200"
+                  : "bg-lilac text-cocoa border border-periwinkle/30"
               }`}
             >
               {note.badgeText}
@@ -167,12 +167,12 @@ export function PetCard({ pet, isApplied, onPass, onSave, onViewProfile }: PetCa
         </div>
       </div>
 
-      {/* Action Controls: Biscuit Pass + Candy Pink Spark CTA */}
+      {/* Action Controls: Clean White Pass + Tangerine Spark CTA */}
       <div className="flex items-center gap-3 pt-0.5">
         <button
           type="button"
           onClick={onPass}
-          className="flex-1 py-3.5 px-4 rounded-full bg-white hover:bg-biscuit/60 text-xs font-extrabold text-cocoa border border-cocoa/20 shadow-md transition-all active:scale-95 flex items-center justify-center gap-2"
+          className="flex-1 py-3.5 px-4 rounded-full bg-white hover:bg-slate-50 text-xs font-extrabold text-cocoa border border-cocoa/20 shadow-md transition-all active:scale-95 flex items-center justify-center gap-2"
         >
           <X className="w-4 h-4 text-cocoa-muted" />
           <span>Not My Fit</span>

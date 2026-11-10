@@ -12,16 +12,17 @@ export default {
         sans: ["var(--font-plus-jakarta)", "-apple-system", "BlinkMacSystemFont", "sans-serif"],
       },
       colors: {
-        // Periwinkle Main Brand Palette (with Bold Tangerine & Buttercup Pop)
+        // Option 3: Full Saturated Periwinkle Canvas with Electric Tangerine Pop
         periwinkle: {
           light: "#EEF2FF",
           DEFAULT: "#6C8BF5",
           dark: "#4967CE",
+          canvas: "#6C8BF5",
         },
         biscuit: {
-          light: "#FFFFFF",
-          DEFAULT: "#F8F9FE",
-          dark: "#EEF1FA",
+          light: "#8AA5FF",
+          DEFAULT: "#6C8BF5",
+          dark: "#4967CE",
         },
         sunset: {
           light: "#FFA05C",
@@ -29,9 +30,9 @@ export default {
           dark: "#E06D20",
         },
         candy: {
-          light: "#93ABFF",
-          DEFAULT: "#6C8BF5",
-          dark: "#4967CE",
+          light: "#FFA05C",
+          DEFAULT: "#FF8A3D",
+          dark: "#E06D20",
         },
         mango: {
           light: "#FEF9C3",

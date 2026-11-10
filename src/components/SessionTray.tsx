@@ -11,7 +11,7 @@ interface SessionTrayProps {
 export function SessionTray({ savedPets, isApplied, onSelectPet }: SessionTrayProps) {
   if (savedPets.length === 0) {
     return (
-      <div className="w-full max-w-sm mx-auto pt-3 border-t border-cocoa/15 flex items-center justify-between text-xs font-bold text-cocoa/80">
+      <div className="w-full max-w-sm mx-auto pt-3 border-t border-white/20 flex items-center justify-between text-xs font-bold text-white/80">
         <span>No saved pets yet</span>
         <span>Click Save & Match ♥</span>
       </div>
@@ -19,7 +19,7 @@ export function SessionTray({ savedPets, isApplied, onSelectPet }: SessionTrayPr
   }
 
   return (
-    <div className="w-full max-w-sm mx-auto pt-3 border-t border-cocoa/15 flex items-center justify-between text-cocoa">
+    <div className="w-full max-w-sm mx-auto pt-3 border-t border-white/20 flex items-center justify-between text-white">
       <div className="flex items-center gap-2">
         <span className="text-xs font-extrabold uppercase tracking-wider">
           Saved Pack ({savedPets.length}):
@@ -53,7 +53,7 @@ export function SessionTray({ savedPets, isApplied, onSelectPet }: SessionTrayPr
         </div>
       </div>
 
-      <span className="text-xs font-bold text-cocoa/80">
+      <span className="text-xs font-bold text-white/80">
         Tap avatar to view
       </span>
     </div>
