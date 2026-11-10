@@ -74,19 +74,15 @@ export function PetCard({ pet, isApplied, onPass, onSave, onViewProfile }: PetCa
             ))}
           </div>
 
-          {/* Top Floating Badges (Vibe Tag & Applied Tag) */}
-          <div className="absolute top-7 left-3.5 right-3.5 flex items-center justify-between z-10 pointer-events-none">
-            <span className="text-xs font-extrabold px-3 py-1.5 rounded-full bg-white/95 text-cocoa backdrop-blur-md shadow-md border border-cocoa/10">
-              {pet.vibeTag}
-            </span>
-
-            {isApplied && (
+          {/* Top Floating Applied Badge */}
+          {isApplied && (
+            <div className="absolute top-7 right-3.5 z-10 pointer-events-none">
               <span className="text-xs font-extrabold px-3 py-1.5 rounded-full bg-candy text-white shadow-md flex items-center gap-1.5 border border-white/30">
                 <CheckCircle2 className="w-3.5 h-3.5" />
                 <span>Applied</span>
               </span>
-            )}
-          </div>
+            </div>
+          )}
 
           {/* Match Score Floating Badge (Golden Mango) */}
           {pet.matchScore && (
